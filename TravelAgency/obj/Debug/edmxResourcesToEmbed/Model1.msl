@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище ModelContainer" CdmEntityContainer="Entities1">
+    <EntitySetMapping Name="City">
+      <EntityTypeMapping TypeName="Model.City">
+        <MappingFragment StoreEntitySet="City">
+          <ScalarProperty Name="id_city" ColumnName="id_city" />
+          <ScalarProperty Name="city_name" ColumnName="city_name" />
+          <ScalarProperty Name="id_country" ColumnName="id_country" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Client">
+      <EntityTypeMapping TypeName="Model.Client">
+        <MappingFragment StoreEntitySet="Client">
+          <ScalarProperty Name="id_client" ColumnName="id_client" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="surname" ColumnName="surname" />
+          <ScalarProperty Name="passport" ColumnName="passport" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="phone_number" ColumnName="phone_number" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Country">
+      <EntityTypeMapping TypeName="Model.Country">
+        <MappingFragment StoreEntitySet="Country">
+          <ScalarProperty Name="id_country" ColumnName="id_country" />
+          <ScalarProperty Name="country_name" ColumnName="country_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employee">
+      <EntityTypeMapping TypeName="Model.Employee">
+        <MappingFragment StoreEntitySet="Employee">
+          <ScalarProperty Name="id_employee" ColumnName="id_employee" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="surname" ColumnName="surname" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="phone_number" ColumnName="phone_number" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Gender">
+      <EntityTypeMapping TypeName="Model.Gender">
+        <MappingFragment StoreEntitySet="Gender">
+          <ScalarProperty Name="id_gender" ColumnName="id_gender" />
+          <ScalarProperty Name="gender1" ColumnName="gender" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Hotel">
+      <EntityTypeMapping TypeName="Model.Hotel">
+        <MappingFragment StoreEntitySet="Hotel">
+          <ScalarProperty Name="id_hotel" ColumnName="id_hotel" />
+          <ScalarProperty Name="hotel_name" ColumnName="hotel_name" />
+          <ScalarProperty Name="stars_number" ColumnName="stars_number" />
+          <ScalarProperty Name="id_city" ColumnName="id_city" />
+          <ScalarProperty Name="id_country" ColumnName="id_country" />
+          <ScalarProperty Name="website" ColumnName="website" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="phone_number" ColumnName="phone_number" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Nutrition">
+      <EntityTypeMapping TypeName="Model.Nutrition">
+        <MappingFragment StoreEntitySet="Nutrition">
+          <ScalarProperty Name="id_nutrition" ColumnName="id_nutrition" />
+          <ScalarProperty Name="nutrition_type" ColumnName="nutrition_type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Payment_Type">
+      <EntityTypeMapping TypeName="Model.Payment_Type">
+        <MappingFragment StoreEntitySet="Payment_Type">
+          <ScalarProperty Name="id_payment_type" ColumnName="id_payment_type" />
+          <ScalarProperty Name="payment_type1" ColumnName="payment_type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Role">
+      <EntityTypeMapping TypeName="Model.Role">
+        <MappingFragment StoreEntitySet="Role">
+          <ScalarProperty Name="id_role" ColumnName="id_role" />
+          <ScalarProperty Name="role1" ColumnName="role" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sale">
+      <EntityTypeMapping TypeName="Model.Sale">
+        <MappingFragment StoreEntitySet="Sale">
+          <ScalarProperty Name="id_sale" ColumnName="id_sale" />
+          <ScalarProperty Name="sale_date" ColumnName="sale_date" />
+          <ScalarProperty Name="id_client" ColumnName="id_client" />
+          <ScalarProperty Name="id_employee" ColumnName="id_employee" />
+          <ScalarProperty Name="id_tour" ColumnName="id_tour" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="id_payment_type" ColumnName="id_payment_type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="Model.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tour">
+      <EntityTypeMapping TypeName="Model.Tour">
+        <MappingFragment StoreEntitySet="Tour">
+          <ScalarProperty Name="id_tour" ColumnName="id_tour" />
+          <ScalarProperty Name="tour_name" ColumnName="tour_name" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="departure_date" ColumnName="departure_date" />
+          <ScalarProperty Name="departure_city_id" ColumnName="departure_city_id" />
+          <ScalarProperty Name="return_date" ColumnName="return_date" />
+          <ScalarProperty Name="return_city_id" ColumnName="return_city_id" />
+          <ScalarProperty Name="days_amount" ColumnName="days_amount" />
+          <ScalarProperty Name="id_country" ColumnName="id_country" />
+          <ScalarProperty Name="id_tour_type" ColumnName="id_tour_type" />
+          <ScalarProperty Name="id_nutrition" ColumnName="id_nutrition" />
+          <ScalarProperty Name="id_hotel" ColumnName="id_hotel" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tour_Type">
+      <EntityTypeMapping TypeName="Model.Tour_Type">
+        <MappingFragment StoreEntitySet="Tour_Type">
+          <ScalarProperty Name="id_tour_type" ColumnName="id_tour_type" />
+          <ScalarProperty Name="tour_type1" ColumnName="tour_type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="User">
+      <EntityTypeMapping TypeName="Model.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="id_user" ColumnName="id_user" />
+          <ScalarProperty Name="surname" ColumnName="surname" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="patronymic" ColumnName="patronymic" />
+          <ScalarProperty Name="login" ColumnName="login" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="id_gender" ColumnName="id_gender" />
+          <ScalarProperty Name="birthday" ColumnName="birthday" />
+          <ScalarProperty Name="id_role" ColumnName="id_role" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

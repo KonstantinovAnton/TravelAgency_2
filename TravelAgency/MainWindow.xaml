@@ -1,0 +1,32 @@
+﻿<!--
+    ЛОГИН АДМИНИСТРАТОРА: admin
+    ПАРОЛЬ АДМИНИСТРАТОРА: 1234
+ -->
+    
+    
+    <Window x:Class="TravelAgency.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TravelAgency"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Name="gotoPageRegistration" Click="gotoPageRegistration_Click" Margin="5,0">Нажми на меня</Button>
+            <Button Name="gotoPageАuthorization" Click="gotoPageАuthorization_Click" Margin="5,0" Height="40" VerticalAlignment="Top">Авторизоваться</Button>
+        </StackPanel>
+           
+          
+        <Frame Name="frm" Grid.Row="1" NavigationUIVisibility="Hidden">
+        </Frame>
+
+    </Grid>
+</Window>
