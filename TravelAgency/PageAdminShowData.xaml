@@ -10,18 +10,31 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition></RowDefinition>
+            <RowDefinition Height="70"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0">
-            <Button Name="buttonSortAskSurname" Click="buttonSortAskSurname_Click">По ↑ фамилии</Button>
-            <Button Name="buttonSortDescSurname" Click="buttonSortDescSurname_Click">По ↓ фамилии</Button>
-            <Button Name="buttonSortMale" Click="buttonSortMale_Click">Мужчины</Button>
-            <Button Name="buttonSortFemale" Click="buttonSortFemale_Click">Женщины</Button>
-            <TextBox Name="textBoxSearch"></TextBox>
-            <Button Name="buttonSearchName" Click="buttonSearchName_Click">Поиск по имени</Button>
-            <Button Name="buttonSearchLogin" Click="buttonSearchLogin_Click">Поиск по логину</Button>
-            <Button Name="buttonShowFirstData" Click="buttonShowFirstData_Click">Исходная таблица</Button>
+        <StackPanel Grid.Row="0" Background="AliceBlue">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,0">
+                <Button Name="buttonSortAskSurname" Click="buttonSortAskSurname_Click" Width="150" Height="25">По ↑ фамилии</Button>
+                <Button Name="buttonSortDescSurname" Click="buttonSortDescSurname_Click" Width="150">По ↓ фамилии</Button>
+
+                <Button Name="buttonSortMale" Click="buttonSortMale_Click" Width="150">Мужчины</Button>
+                <Button Name="buttonSortFemale" Click="buttonSortFemale_Click" Width="150">Женщины</Button>
+                <Button Name="buttonShowFirstData" Click="buttonShowFirstData_Click" Width="150">Исходная таблица</Button>
+
+               
+
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,5,0,0">
+                <Label>Введите логин или пароль для сортировки >> </Label>
+                <TextBox Name="textBoxSearch" Width="170" Margin="7,0"></TextBox>
+                <Button Name="buttonSearchName" Click="buttonSearchName_Click" Width="150">Поиск по имени</Button>
+                <Button Name="buttonSearchLogin" Click="buttonSearchLogin_Click" Width="150">Поиск по логину</Button>
+                
+
+            </StackPanel>
+
         </StackPanel>
         <DataGrid Name="dataGridAdminShowAll" AutoGenerateColumns="False" Grid.Row="1" Margin="0,2,0,-2">
             <DataGrid.Columns>
@@ -34,5 +47,6 @@
             </DataGrid.Columns>
         </DataGrid>
 
+        <Button Name="gotoPageAdminMenu" Click="gotoPageAdminMenu_Click"  Grid.Row="2" Width="120" HorizontalAlignment="Right" Margin="0,10,20,10">Вернуться в меню</Button>
     </Grid>
 </Page>

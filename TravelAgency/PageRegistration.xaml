@@ -6,57 +6,66 @@
       xmlns:local="clr-namespace:TravelAgency"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="PageRegistration">
+      Title="PageRegistration"
+  
+      >
 
     <Grid>
 
         <Grid.RowDefinitions>
-            <RowDefinition></RowDefinition>
-            <RowDefinition Height="5*"></RowDefinition>
+           
         </Grid.RowDefinitions>
-        
-        
-        <TextBlock FontSize="40">Регистрация</TextBlock>
-        <StackPanel Grid.Row="1" Orientation="Vertical" Background="AliceBlue">
+        <StackPanel  Orientation="Vertical" Background="#FF85A7A9">
 
-            <StackPanel Grid.Row="1"  Orientation="Horizontal">
-                <GroupBox Header="Фамилия" Width="100" Height="45" VerticalAlignment="Top">
-                    <TextBox Name="textBoxSurname" Width="100" ></TextBox>
-                </GroupBox>
-                <GroupBox Header="Имя" Width="100" Height="45" VerticalAlignment="Top">
-                    <TextBox Name="textBoxName" Width="100" ></TextBox>
-                </GroupBox>
-                <GroupBox Header="Отчество" Width="100" Height="45" VerticalAlignment="Top">
-                    <TextBox Name="textBoxPatronymic" Width="100" ></TextBox>
-                </GroupBox>
-            </StackPanel>
-
-            <StackPanel Grid.Row="1" Orientation="Horizontal">
-                <GroupBox Header="Логин" Width="100" Height="45" VerticalAlignment="Top" HorizontalAlignment="Left">
-                    <TextBox Name="textBoxLogin" Width="100" ></TextBox>
-                </GroupBox>
-                <GroupBox Header="Пароль" Width="100" Height="45" VerticalAlignment="Top" HorizontalAlignment="Left">
-                    <PasswordBox Name="passBox" Width="100" ></PasswordBox>
-                    
-                </GroupBox>
-                <GroupBox>
-                    <PasswordBox Name ="passBoxRepeatPass" Width="100"></PasswordBox>
-                </GroupBox>
-            </StackPanel>
-            <StackPanel Grid.Row="1" Orientation="Horizontal">
-                <GroupBox  Header="Пол" Width="200" Height="45">
-                    <StackPanel Orientation="Horizontal">
-                        <RadioButton Name="radioBtnMale"  Content="Мужской"/>
-                        <RadioButton Name="radioBtnFemale" Content="Женский"></RadioButton>
+            <StackPanel   Orientation="Vertical" >
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <StackPanel Margin="5">
+                        <Label HorizontalAlignment="Center" Margin="0,0,70,0">Фамилия</Label>
+                    <TextBox Name="textBoxSurname" Width="130" ></TextBox>
                     </StackPanel>
-                </GroupBox>
+                    <StackPanel Margin="5">
+                        <Label HorizontalAlignment="Center" Margin="0,0,95,0">Имя</Label>
+                <TextBox Name="textBoxName" Width="130" ></TextBox>
+                    </StackPanel >
+                    <StackPanel Margin="5">
+                    <Label HorizontalAlignment="Center" Margin="0,0,68,0">Отчество</Label>
+                <TextBox Name="textBoxPatronymic" Width="130" ></TextBox>
+                    </StackPanel>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <StackPanel Margin="0,0,20,0">
+                        <Label HorizontalAlignment="Center" Margin="0,0,110,0">Пол</Label>
+                        <GroupBox Width="200" Height="35" BorderBrush="{x:Null}">
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                <RadioButton Name="radioBtnMale"  Content="Мужской" Margin="5"/>
+                                <RadioButton Name="radioBtnFemale" Content="Женский" Margin="5"></RadioButton>
+                            </StackPanel>
+                        </GroupBox>
+                  </StackPanel>
+                <StackPanel>
+                    <StackPanel HorizontalAlignment="Center">
+                        <Label>Дата рождения</Label>
+                        <DatePicker Name="datePickBirthday" Width="140" HorizontalAlignment="Left"></DatePicker>
+                    </StackPanel>
+                </StackPanel>
+           </StackPanel>
+
+                <Label HorizontalAlignment="Center" Margin="0,10,75,0">Логин</Label>
+                <TextBox Name="textBoxLogin" Width="120" ></TextBox>
+
+                <Label HorizontalAlignment="Center" Margin="0,0,67,0">Пароль</Label>
+                <PasswordBox Name="passBox" Width="120" ></PasswordBox>
+
+                <Label HorizontalAlignment="Center" Margin="0,0,25,0">Повтор пароля</Label>
+                <PasswordBox Name ="passBoxRepeatPass" Width="120"></PasswordBox>
+                
             </StackPanel>
-            <StackPanel>
-                <GroupBox Header="Дата рождения" >
-                    <DatePicker Name="datePickBirthday" Width="100" HorizontalAlignment="Left"></DatePicker>
-                </GroupBox>
+            <StackPanel  Orientation="Horizontal">
+                
             </StackPanel>
-            <Button Name="btnRegistrate" Click="btnRegistrate_Click">Зарегистрироваться</Button>
+            
+            <Button Name="btnRegistrate" Click="btnRegistrate_Click" Margin="0,30,0,0" Height="30" Width="120">Зарегистрироваться</Button>
         </StackPanel>
         
         

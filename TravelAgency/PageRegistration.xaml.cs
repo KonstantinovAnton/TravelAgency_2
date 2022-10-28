@@ -96,6 +96,8 @@ namespace TravelAgency
                 Base.EM.SaveChanges();
 
                 MessageBox.Show("Пользователь успешно зарегистрирован", "Регистрация", MessageBoxButton.OK, MessageBoxImage.Information);
+
+                NavigationService.Navigate(new PageAuthorization());
             }
             catch
             {

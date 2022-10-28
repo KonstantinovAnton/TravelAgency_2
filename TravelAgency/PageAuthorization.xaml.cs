@@ -46,8 +46,7 @@ namespace TravelAgency
                         case 1:
 
                             NavigationService.Navigate(new PageAdminMenu());
-                           
-
+                        
                             break;
 
                         case 2:

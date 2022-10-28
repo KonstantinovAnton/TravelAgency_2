@@ -9,22 +9,16 @@
       Title="PageAuthorization">
 
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition></RowDefinition>
-            <RowDefinition Height="5*"></RowDefinition>
-        </Grid.RowDefinitions>
+        <TextBlock FontSize="40">Авторизация</TextBlock>
         
-
-            <TextBlock FontSize="40">Авторизация</TextBlock>
-
-       
-            <StackPanel Grid.Row="1" Background="AliceBlue">
-            <TextBlock HorizontalAlignment="Center">Логин</TextBlock>
-            <TextBox Name="textBoxLogin"  Width="100"></TextBox>
-            <TextBlock HorizontalAlignment="Center">Пароль</TextBlock>
-            <PasswordBox  Name="passBox" Width="100"></PasswordBox>
-            <Button Name="btnAuthorizate" Click="btnAuthorizate_Click" Width="100" Margin="350,0" >Войти</Button>
-
+        <StackPanel  Background="AliceBlue" >
+            
+                <Label HorizontalAlignment="Center" Margin="0,30,75,0">Логин</Label>
+                <TextBox Name="textBoxLogin"  Width="120"></TextBox>
+                <Label HorizontalAlignment="Center" Margin="0,0,68,0">Пароль</Label>
+                <PasswordBox  Name="passBox" Width="120"></PasswordBox>
+                <Button Name="btnAuthorizate" Click="btnAuthorizate_Click" Width="100" Margin="350,15" >Войти</Button>
+            
         </StackPanel>
-              </Grid>
+ </Grid>
 </Page>

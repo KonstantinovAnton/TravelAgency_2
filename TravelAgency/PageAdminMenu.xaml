@@ -9,15 +9,10 @@
       Title="PageAdminMenu">
 
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition></RowDefinition>
-            <RowDefinition Height="5*"></RowDefinition>
-        </Grid.RowDefinitions>
-        
-        <TextBlock FontSize="50">Меню админа</TextBlock>
-        <StackPanel Grid.Row="1">
-            <Button Name ="gotoPageAdminShowData" Grid.Row="1" Width="350" Height="50" Click="gotoPageAdminShowData_Click">Пользователи</Button>
-            <Button Name ="gotoPageAdminTour"  Width="350" Height="50" Click="gotoPageAdminTour_Click">Основаня таблица</Button>
+       
+        <StackPanel>
+            <Button Margin="0,50,0,10" Name ="gotoPageAdminShowData" Width="350" Height="50" Click="gotoPageAdminShowData_Click">Пользователи</Button>
+            <Button Name ="gotoPageAdminTour"  Width="350" Height="50" Click="gotoPageAdminTour_Click">Туры</Button>
             </StackPanel>
     </Grid>
 </Page>

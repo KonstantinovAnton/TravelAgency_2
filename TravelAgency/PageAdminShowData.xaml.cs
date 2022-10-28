@@ -100,6 +100,11 @@ namespace TravelAgency
         private void buttonSearchName_Click(object sender, RoutedEventArgs e)
         {
             string name = textBoxSearch.Text;
+            if(name == "")
+            {
+                MessageBox.Show("Введите имя пользователя", "Сортировка", MessageBoxButton.OK, MessageBoxImage.Information);
+                return;
+            }
             var users = Base.EM.User.ToList();
             var genders = Base.EM.Gender.ToList();
             var orUsers = users.Where(x => x.name.ToLower().Contains(name.ToLower()));
@@ -114,6 +119,11 @@ namespace TravelAgency
         private void buttonSearchLogin_Click(object sender, RoutedEventArgs e)
         {
             string login = textBoxSearch.Text;
+            if(login == "")
+            {
+                MessageBox.Show("Введите логин пользователя", "Сортировка", MessageBoxButton.OK, MessageBoxImage.Information);
+                return;
+            }
             var users = Base.EM.User.ToList();
             var genders = Base.EM.Gender.ToList();
             var orUsers = users.Where(x => x.login.ToLower().Contains(login.ToLower()));
@@ -137,7 +147,10 @@ namespace TravelAgency
             dataGridAdminShowAll.ItemsSource = allData.ToList();
         }
 
-       
+        private void gotoPageAdminMenu_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new PageAdminMenu());
+        }
     }
 
 }
