@@ -42,7 +42,7 @@ namespace TravelAgency
 
                 if (passBox.Password != passBoxRepeatPass.Password)
                 {
-                    MessageBox.Show("Пароли не совпадают");
+                    MessageBox.Show("Пароли не совпадают", "Ошибка регистрации", MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
 
@@ -56,13 +56,13 @@ namespace TravelAgency
                 }
                 else
                 {
-                    MessageBox.Show("Выберите пол");
+                    MessageBox.Show("Пол не выбран", "Ошибка регистрации", MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
 
                 if (datePickBirthday.SelectedDate == null)
                 {
-                    MessageBox.Show("Выберите дату своего рождения");
+                    MessageBox.Show("Не выбрана дата рождения", "Ошибка регистрации", MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
 
@@ -101,7 +101,7 @@ namespace TravelAgency
             }
             catch
             {
-                MessageBox.Show("Пользователь не зарегистрирован");
+                MessageBox.Show("Пользователь не зарегистрирован", "Ошибка регистрации", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             
         }
@@ -112,7 +112,8 @@ namespace TravelAgency
         {
             if (tb.Text == "")
             {
-                MessageBox.Show("Пустое поле \""+columnName+"\"");
+                
+                MessageBox.Show("Пустое поле \"" + columnName + "\"", "Ошибка регистрации", MessageBoxButton.OK, MessageBoxImage.Error);
                 return true;
             }
             else return false;
@@ -121,7 +122,9 @@ namespace TravelAgency
         {
             if (pb.Password == "")
             {
-                MessageBox.Show("Введите " + columnName);
+                
+                MessageBox.Show("Введите " + columnName, "Ошибка регистрации", MessageBoxButton.OK, MessageBoxImage.Error);
+
                 return true;
             }
             else return false;
@@ -140,28 +143,34 @@ namespace TravelAgency
 
             if (!(regBigLat.IsMatch(pass)))
             {
-                MessageBox.Show("В вашем пароле не содержится ни один заглавный латинский символ");
+                MessageBox.Show("В вашем пароле не содержится ни один заглавный латинский символ", "Ошибка регистрации", MessageBoxButton.OK, MessageBoxImage.Error);
+               
+
                 return false;
             }
             if (!(regSmallLat.IsMatch(pass)))
             {
-                MessageBox.Show("В вашем пароле не содержится 3 прописных латинских символа");
+                MessageBox.Show("В вашем пароле не содержится 3 прописных латинских символа", "Ошибка регистрации", MessageBoxButton.OK, MessageBoxImage.Error);
+
                 return false;
             }
             if (!(regDig.IsMatch(pass)))
             {
-                MessageBox.Show("В вашем пароле не содержится 2 цифр");
+                MessageBox.Show("В вашем пароле не содержится 2 цифр", "Ошибка регистрации", MessageBoxButton.OK, MessageBoxImage.Error);
+
                 return false;
             }
             if (!(regSpec.IsMatch(pass)))
             {
-                MessageBox.Show("В вашем пароле не содержутся спец. символы");
+                MessageBox.Show("В вашем пароле не содержутся спец. символы", "Ошибка регистрации", MessageBoxButton.OK, MessageBoxImage.Error);
+  
                 return false;
             }
 
             if (pass.Length < 8)
             {
-                MessageBox.Show("В вашем пароле менее 8 символов");
+                MessageBox.Show("В вашем пароле менее 8 символов", "Ошибка регистрации", MessageBoxButton.OK, MessageBoxImage.Error);
+
                 return false;
             }
 

@@ -13,6 +13,13 @@
     </Page.Resources>
     
     <Grid>
+
+
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+        </Grid.RowDefinitions>
+
         <ListView Name="listView">
             <ListView.ItemTemplate>
                 <DataTemplate>
@@ -30,13 +37,13 @@
                                 <TextBlock Text="{Binding hotel_name, StringFormat={}Отель: {0}}"  FontSize="16"/>
                                 <TextBlock Text="{Binding nutrition_type, StringFormat={}Питание: {0}}"  FontSize="16"/>
                                 <Image Source='/Resources/zaglushka.png' Width="100" Height="100"/>
-
-
                             </StackPanel>
                         </Grid>
                     </Border>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+
+        <Button Name="gotoPageAdminMenu" Click="gotoPageAdminMenu_Click" Grid.Row="1" Width="150" Margin="0,5,10,5" HorizontalAlignment="Right" Foreground="#dee2e6" Template="{StaticResource ButtonTemplate}">В меню</Button>
     </Grid>
 </Page>

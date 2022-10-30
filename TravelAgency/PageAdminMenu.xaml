@@ -11,8 +11,8 @@
     <Grid>
        
         <StackPanel>
-            <Button Margin="0,50,0,10" Name ="gotoPageAdminShowData" Width="350" Height="50" Click="gotoPageAdminShowData_Click">Пользователи</Button>
-            <Button Name ="gotoPageAdminTour"  Width="350" Height="50" Click="gotoPageAdminTour_Click">Туры</Button>
+            <Button Margin="0,50,0,10" Name ="gotoPageAdminShowData" Width="350" Height="50" Foreground="#dee2e6" Click="gotoPageAdminShowData_Click" Template="{StaticResource ButtonTemplate}" FontSize="20">Пользователи</Button>
+            <Button Name ="gotoPageAdminTour"  Width="350" Height="50" Foreground="#dee2e6" Click="gotoPageAdminTour_Click" Template="{StaticResource ButtonTemplate}" FontSize="20">Туры</Button>
             </StackPanel>
     </Grid>
 </Page>

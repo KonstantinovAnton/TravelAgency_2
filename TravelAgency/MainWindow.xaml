@@ -10,8 +10,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TravelAgency"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800"
-        Background="#FF67B6FB"    
+        Title="ТурАгенство" Height="530" Width="800"
+        Background="#FF3F3F46"    
             >
     <Grid>
 
@@ -22,13 +22,13 @@
 
         <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Left">
             <Image Margin="10,0" Source="/Resources/plane.png"></Image>
-            <Button Name="gotoPageRegistration" Click="gotoPageRegistration_Click" Margin="5,0" Width="100" Height="25">Регистрация</Button>
-            <Button Name="gotoPageАuthorization" Click="gotoPageАuthorization_Click" Margin="5,0" Height="25" Width="100" >Авторизация</Button>
+            <Button Name="gotoPageRegistration" Click="gotoPageRegistration_Click" Foreground="#dee2e6" Margin="5,0" Width="100" Height="25" Template="{StaticResource ButtonTemplate}" Background="#FF8D6060">Регистрация</Button>
+            <Button Name="gotoPageАuthorization" Click="gotoPageАuthorization_Click" Foreground="#dee2e6" Margin="5,0" Height="25" Width="100" Template="{StaticResource ButtonTemplate}" >Авторизация</Button>
 
         </StackPanel>
-           
-          
-        <Frame Name="frm" Grid.Row="1" NavigationUIVisibility="Hidden">
+
+
+        <Frame Name="frm" Grid.Row="1" NavigationUIVisibility="Hidden" Background="#8d99ae">
         </Frame>
 
     </Grid>

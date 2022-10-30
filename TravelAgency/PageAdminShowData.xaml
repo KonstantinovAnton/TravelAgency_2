@@ -14,9 +14,9 @@
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="50"></RowDefinition>
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0" Background="AliceBlue">
+        <StackPanel Grid.Row="0" Background="#8d99ae">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,0">
-                <Button Name="buttonSortAskSurname" Click="buttonSortAskSurname_Click" Width="150" Height="25">По ↑ фамилии</Button>
+                <Button Name="buttonSortAskSurname" Click="buttonSortAskSurname_Click" Width="150" Height="25" >По ↑ фамилии</Button>
                 <Button Name="buttonSortDescSurname" Click="buttonSortDescSurname_Click" Width="150">По ↓ фамилии</Button>
 
                 <Button Name="buttonSortMale" Click="buttonSortMale_Click" Width="150">Мужчины</Button>
@@ -27,8 +27,8 @@
 
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,5,0,0">
-                <Label>Введите логин или пароль для сортировки >> </Label>
-                <TextBox Name="textBoxSearch" Width="170" Margin="7,0"></TextBox>
+                <Label>Введите имя или логин для сортировки   >> </Label>
+                <TextBox Name="textBoxSearch" Width="187" Margin="7,0" ></TextBox>
                 <Button Name="buttonSearchName" Click="buttonSearchName_Click" Width="150">Поиск по имени</Button>
                 <Button Name="buttonSearchLogin" Click="buttonSearchLogin_Click" Width="150">Поиск по логину</Button>
                 
@@ -36,17 +36,17 @@
             </StackPanel>
 
         </StackPanel>
-        <DataGrid Name="dataGridAdminShowAll" AutoGenerateColumns="False" Grid.Row="1" Margin="0,2,0,-2">
+        <DataGrid Name="dataGridAdminShowAll" Grid.Row="1" Margin="0,2,0,-2" AutoGenerateColumns="False">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Фамилия" Binding="{Binding surname}"/>
-                <DataGridTextColumn Header="Имя" Binding="{Binding name}"/>
-                <DataGridTextColumn Header="Отчество" Binding="{Binding patronymic}"/>
-                <DataGridTextColumn Header="Логин" Binding="{Binding login}"/>
-                <DataGridTextColumn Header="Пол" Binding="{Binding gender1}"/>
-                <DataGridTextColumn Header="Дата рождения" Binding="{Binding birthday}"/>
+                <DataGridTextColumn Header="Фамилия" Binding="{Binding surname}" Width="*"/>
+                <DataGridTextColumn Header="Имя" Binding="{Binding name}" Width="*"/>
+                <DataGridTextColumn  Header="Отчество" Binding="{Binding patronymic}" Width="*"/>
+                <DataGridTextColumn Header="Логин" Binding="{Binding login}" Width="*"/>
+                <DataGridTextColumn Header="Пол" Binding="{Binding gender1}" Width="*"/>
+                <DataGridTextColumn Header="Дата рождения" Binding="{Binding birthday, StringFormat={}{0:dd.MM.yyyy}}" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
 
-        <Button Name="gotoPageAdminMenu" Click="gotoPageAdminMenu_Click"  Grid.Row="2" Width="120" HorizontalAlignment="Right" Margin="0,10,20,10">Вернуться в меню</Button>
+        <Button Name="gotoPageAdminMenu" Click="gotoPageAdminMenu_Click" Foreground="#dee2e6"  Grid.Row="2" Width="120" HorizontalAlignment="Right" Margin="0,10,20,10" Template="{StaticResource ButtonTemplate}">Вернуться в меню</Button>
     </Grid>
 </Page>
