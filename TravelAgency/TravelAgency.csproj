@@ -104,6 +104,9 @@
     <Compile Include="PageAdminMenu.xaml.cs">
       <DependentUpon>PageAdminMenu.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PageAdminSale.xaml.cs">
+      <DependentUpon>PageAdminSale.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PageAdminShowData.xaml.cs">
       <DependentUpon>PageAdminShowData.xaml</DependentUpon>
     </Compile>
@@ -153,6 +156,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="PageAdminMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageAdminSale.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

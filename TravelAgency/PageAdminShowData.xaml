@@ -36,14 +36,14 @@
             </StackPanel>
 
         </StackPanel>
-        <DataGrid Name="dataGridAdminShowAll" Grid.Row="1" Margin="0,2,0,-2" AutoGenerateColumns="False">
+        <DataGrid ColumnWidth="*" Name="dataGridAdminShowAll" Grid.Row="1" Margin="0,2,0,-2" AutoGenerateColumns="False">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Фамилия" Binding="{Binding surname}" Width="*"/>
-                <DataGridTextColumn Header="Имя" Binding="{Binding name}" Width="*"/>
-                <DataGridTextColumn  Header="Отчество" Binding="{Binding patronymic}" Width="*"/>
-                <DataGridTextColumn Header="Логин" Binding="{Binding login}" Width="*"/>
-                <DataGridTextColumn Header="Пол" Binding="{Binding gender1}" Width="*"/>
-                <DataGridTextColumn Header="Дата рождения" Binding="{Binding birthday, StringFormat={}{0:dd.MM.yyyy}}" Width="*"/>
+                <DataGridTextColumn Header="Фамилия" Binding="{Binding surname}" />
+                <DataGridTextColumn Header="Имя" Binding="{Binding name}"/>
+                <DataGridTextColumn  Header="Отчество" Binding="{Binding patronymic}"/>
+                <DataGridTextColumn Header="Логин" Binding="{Binding login}"/>
+                <DataGridTextColumn Header="Пол" Binding="{Binding gender1}"/>
+                <DataGridTextColumn Header="Дата рождения" Binding="{Binding birthday, StringFormat={}{0:dd.MM.yyyy}}"/>
             </DataGrid.Columns>
         </DataGrid>
 
