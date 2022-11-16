@@ -44,6 +44,9 @@
             </ListView.ItemTemplate>
         </ListView>
 
-        <Button Name="gotoPageAdminMenu" Click="gotoPageAdminMenu_Click" Grid.Row="1" Width="150" Margin="0,5,10,5" HorizontalAlignment="Right" Foreground="#dee2e6" Template="{StaticResource ButtonTemplate}">В меню</Button>
+      
+            <Button Name="gotoPageAdminMenu" Click="gotoPageAdminMenu_Click" Grid.Row="1" Width="150" Margin="0,5,10,5" HorizontalAlignment="Right" Foreground="#dee2e6" Template="{StaticResource ButtonTemplate}">В меню</Button>
+        <Button Name="gotoPageAdminAddTour" Grid.Row="1" Width="150" Margin="0,5,190,5" HorizontalAlignment="Right" Foreground="#dee2e6" Template="{StaticResource ButtonTemplate}" Click="gotoPageAdminAddTour_Click">Добавить</Button>
+        
     </Grid>
 </Page>

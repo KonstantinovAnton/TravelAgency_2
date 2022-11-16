@@ -57,5 +57,10 @@ namespace TravelAgency
         {
             NavigationService.Navigate(new PageAdminMenu());
         }
+
+        private void gotoPageAdminAddTour_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new PageAdminAddTour());
+        }
     }
 }

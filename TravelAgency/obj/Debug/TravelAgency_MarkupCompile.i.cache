@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\КонстантиновАС\Source\Repos\TravelAgency_2_2\TravelAgency\obj\Debug\
+C:\Users\Konstantinov\Source\Repos\TravelAgency_2.1\TravelAgency\obj\Debug\
 TravelAgency
 none
 false
 DEBUG;TRACE
-C:\Users\КонстантиновАС\Source\Repos\TravelAgency_2_2\TravelAgency\App.xaml
-8-1059932913
-2-1957146511
-31847873710
-18-1652927071
-MainWindow.xaml;PageAdminMenu.xaml;PageAdminSale.xaml;PageAdminShowData.xaml;PageAdminTour.xaml;PageAuthorization.xaml;PageRegistration.xaml;PageUserMenu.xaml;
+C:\Users\Konstantinov\Source\Repos\TravelAgency_2.1\TravelAgency\App.xaml
+91213393150
+21750853300
+32-289167495
+18615436923
+MainWindow.xaml;PageAdminAddTour.xaml;PageAdminMenu.xaml;PageAdminSale.xaml;PageAdminShowData.xaml;PageAdminTour.xaml;PageAuthorization.xaml;PageRegistration.xaml;PageUserMenu.xaml;
 
 True
 
