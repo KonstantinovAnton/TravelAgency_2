@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+<Schema Namespace="Model1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityType Name="City">
     <Key>
       <PropertyRef Name="id_city" />
@@ -135,6 +135,7 @@
     <Property Name="id_tour_type" Type="Int32" Nullable="false" />
     <Property Name="id_nutrition" Type="Int32" Nullable="false" />
     <Property Name="id_hotel" Type="Int32" Nullable="false" />
+    <Property Name="tour_img" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="City" Relationship="Self.FK_Tour_City" FromRole="Tour" ToRole="City" />
     <NavigationProperty Name="City1" Relationship="Self.FK_Tour_City1" FromRole="Tour" ToRole="City" />
     <NavigationProperty Name="Country" Relationship="Self.FK_Tour_Country" FromRole="Tour" ToRole="Country" />
@@ -347,7 +348,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="Entities1" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="Entities2" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="City" EntityType="Self.City" />
     <EntitySet Name="Client" EntityType="Self.Client" />
     <EntitySet Name="Country" EntityType="Self.Country" />

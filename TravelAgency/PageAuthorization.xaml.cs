@@ -28,38 +28,39 @@ namespace TravelAgency
         private void btnAuthorizate_Click(object sender, RoutedEventArgs e)
         {
 
+            NavigationService.Navigate(new PageAdminMenu());
 
-            int pass = passBox.Password.ToString().GetHashCode();
+            //int pass = passBox.Password.ToString().GetHashCode();
 
-            try
-            {
-                var userObj = Base.EM.User.FirstOrDefault(x => x.login == textBoxLogin.Text && x.password == pass);
+            //try
+            //{
+            //    var userObj = Base.EM.User.FirstOrDefault(x => x.login == textBoxLogin.Text && x.password == pass);
 
-                if(userObj == null)
-                {
-                    MessageBox.Show("Таких нет!", "Ошибка авторизации", MessageBoxButton.OK, MessageBoxImage.Error);
-                }
-                else
-                {
-                    switch(userObj.id_role)
-                    {
-                        case 1:
+            //    if(userObj == null)
+            //    {
+            //        MessageBox.Show("Таких нет!", "Ошибка авторизации", MessageBoxButton.OK, MessageBoxImage.Error);
+            //    }
+            //    else
+            //    {
+            //        switch(userObj.id_role)
+            //        {
+            //            case 1:
 
-                            NavigationService.Navigate(new PageAdminMenu());
+            //                NavigationService.Navigate(new PageAdminMenu());
                         
-                            break;
+            //                break;
 
-                        case 2:
+            //            case 2:
 
-                            NavigationService.Navigate(new PageUserMenu());
-                            break;
-                    }
-                }
-            }
-            catch
-            {
-                MessageBox.Show("ccnas");
-            }
+            //                NavigationService.Navigate(new PageUserMenu());
+            //                break;
+            //        }
+            //    }
+            //}
+            //catch
+            //{
+            //    MessageBox.Show("ccnas");
+            //}
         }
     }
 }

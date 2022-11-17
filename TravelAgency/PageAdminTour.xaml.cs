@@ -45,7 +45,7 @@ namespace TravelAgency
                           join n in nut
                           on t.id_nutrition equals n.id_nutrition
 
-                          select new {t.tour_name, t.price, t.departure_date, t.return_date, city1 =  c.city_name, city2 = c2.city_name, t.days_amount, co.country_name, h.hotel_name, n.nutrition_type};
+                          select new {t.id_tour, t.tour_name, t.price, t.departure_date, t.return_date, city1 =  c.city_name, city2 = c2.city_name, t.days_amount, co.country_name, h.hotel_name, n.nutrition_type, t.tour_img};
 
             listView.ItemsSource = allData.ToList();
 
@@ -60,7 +60,21 @@ namespace TravelAgency
 
         private void gotoPageAdminAddTour_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new PageAdminAddTour());
+            Tour tour = null;
+            NavigationService.Navigate(new PageAdminAddTour(tour, true));
+        }
+
+        private void btnupdate_Click(object sender, RoutedEventArgs e)
+        {
+            Button btn = (Button)sender; 
+            // получаем доступ к Button из шаблона
+            int index = Convert.ToInt32(btn.Uid);   // получаем числовой Uid элемента списка (в разметке предварительно нужно связать номер ячейки с номером кота в базе данных)
+
+            // создаем объект, который содержит кота, информацию о котором нужно отредактировать
+            Tour tour = Base.EM.Tour.FirstOrDefault(x => x.id_tour == index);
+
+            // переход на страницу с редактированием (на ту же самую, где и добавляли кота)
+            NavigationService.Navigate(new PageAdminAddTour(tour, false));
         }
     }
 }

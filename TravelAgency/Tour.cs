@@ -32,6 +32,7 @@ namespace TravelAgency
         public int id_tour_type { get; set; }
         public int id_nutrition { get; set; }
         public int id_hotel { get; set; }
+        public string tour_img { get; set; }
     
         public virtual City City { get; set; }
         public virtual City City1 { get; set; }

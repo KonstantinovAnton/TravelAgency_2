@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,14 +16,21 @@ using System.Windows.Shapes;
 
 namespace TravelAgency
 {
+    
+
     /// <summary>
     /// Логика взаимодействия для PageAdminAddTour.xaml
     /// </summary>
     public partial class PageAdminAddTour : Page
     {
-        public PageAdminAddTour()
+        Tour tour;
+        string path;
+
+        public PageAdminAddTour(Tour tour, bool isNew)
         {
+
             InitializeComponent();
+
             listBoxDepartCity.ItemsSource = Base.EM.City.ToList();
             listBoxDepartCity.SelectedValuePath = "id_city";
             listBoxDepartCity.DisplayMemberPath = "city_name";
@@ -43,6 +51,16 @@ namespace TravelAgency
             listBoxHotel.ItemsSource = Base.EM.Hotel.ToList();
             listBoxHotel.SelectedValuePath = "id_hotel";
             listBoxHotel.DisplayMemberPath = "hotel_name";
+
+
+            if (!isNew)
+            {
+                this.tour = tour;
+
+                textBoxTourName.Text = tour.tour_name;
+                textBoxPrice.Text = Convert.ToString(tour.price);
+               
+            }
 
 
         }
@@ -97,7 +115,8 @@ namespace TravelAgency
                     id_country = count.id_country,
                     id_tour_type = Convert.ToInt32(listBoxTourType.SelectedValue),
                     id_nutrition = Convert.ToInt32(listBoxNutrition.SelectedValue),
-                    id_hotel = Convert.ToInt32(listBoxHotel.SelectedValue)
+                    id_hotel = Convert.ToInt32(listBoxHotel.SelectedValue),
+                    tour_img = path
                 };
 
                 Base.EM.Tour.Add(tour);
@@ -108,6 +127,17 @@ namespace TravelAgency
             catch {
                 MessageBox.Show("Проблема");
             }
+        }
+
+        private void buttonAddChangePhoto_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog OFD = new OpenFileDialog();  // создаем объект диалогового окна
+            OFD.ShowDialog();  // открываем диалоговое окно
+            path = OFD.FileName;  // извлекаем полный путь к картинке
+            string[] arrayPath = path.Split('\\');  // разделяем путь к картинке в массив
+            path = "\\" + arrayPath[arrayPath.Length - 3] + "\\" + arrayPath[arrayPath.Length - 2] + "\\" + arrayPath[arrayPath.Length - 1];  // записываем в бд путь, начиная с имени папки
+
+            
         }
     }
 }

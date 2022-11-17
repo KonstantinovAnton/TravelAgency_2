@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Хранилище Model1" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="City">
           <Key>
             <PropertyRef Name="id_city" />
@@ -120,6 +120,7 @@
           <Property Name="id_tour_type" Type="int" Nullable="false" />
           <Property Name="id_nutrition" Type="int" Nullable="false" />
           <Property Name="id_hotel" Type="int" Nullable="false" />
+          <Property Name="tour_img" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="Tour_Type">
           <Key>
@@ -322,7 +323,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Хранилище ModelContainer">
+        <EntityContainer Name="Хранилище Model1Container">
           <EntitySet Name="City" EntityType="Self.City" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Country" EntityType="Self.Country" Schema="dbo" store:Type="Tables" />
@@ -402,7 +403,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="Model1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="City">
           <Key>
             <PropertyRef Name="id_city" />
@@ -538,6 +539,7 @@
           <Property Name="id_tour_type" Type="Int32" Nullable="false" />
           <Property Name="id_nutrition" Type="Int32" Nullable="false" />
           <Property Name="id_hotel" Type="Int32" Nullable="false" />
+          <Property Name="tour_img" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="City" Relationship="Self.FK_Tour_City" FromRole="Tour" ToRole="City" />
           <NavigationProperty Name="City1" Relationship="Self.FK_Tour_City1" FromRole="Tour" ToRole="City" />
           <NavigationProperty Name="Country" Relationship="Self.FK_Tour_Country" FromRole="Tour" ToRole="Country" />
@@ -750,7 +752,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Entities1" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="Entities2" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="City" EntityType="Self.City" />
           <EntitySet Name="Client" EntityType="Self.Client" />
           <EntitySet Name="Country" EntityType="Self.Country" />
@@ -831,9 +833,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище ModelContainer" CdmEntityContainer="Entities1">
+        <EntityContainerMapping StorageEntityContainer="Хранилище Model1Container" CdmEntityContainer="Entities2">
           <EntitySetMapping Name="City">
-            <EntityTypeMapping TypeName="Model.City">
+            <EntityTypeMapping TypeName="Model1.City">
               <MappingFragment StoreEntitySet="City">
                 <ScalarProperty Name="id_city" ColumnName="id_city" />
                 <ScalarProperty Name="city_name" ColumnName="city_name" />
@@ -842,7 +844,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Client">
-            <EntityTypeMapping TypeName="Model.Client">
+            <EntityTypeMapping TypeName="Model1.Client">
               <MappingFragment StoreEntitySet="Client">
                 <ScalarProperty Name="id_client" ColumnName="id_client" />
                 <ScalarProperty Name="name" ColumnName="name" />
@@ -854,7 +856,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Country">
-            <EntityTypeMapping TypeName="Model.Country">
+            <EntityTypeMapping TypeName="Model1.Country">
               <MappingFragment StoreEntitySet="Country">
                 <ScalarProperty Name="id_country" ColumnName="id_country" />
                 <ScalarProperty Name="country_name" ColumnName="country_name" />
@@ -862,7 +864,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Employee">
-            <EntityTypeMapping TypeName="Model.Employee">
+            <EntityTypeMapping TypeName="Model1.Employee">
               <MappingFragment StoreEntitySet="Employee">
                 <ScalarProperty Name="id_employee" ColumnName="id_employee" />
                 <ScalarProperty Name="name" ColumnName="name" />
@@ -873,7 +875,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Gender">
-            <EntityTypeMapping TypeName="Model.Gender">
+            <EntityTypeMapping TypeName="Model1.Gender">
               <MappingFragment StoreEntitySet="Gender">
                 <ScalarProperty Name="id_gender" ColumnName="id_gender" />
                 <ScalarProperty Name="gender1" ColumnName="gender" />
@@ -881,7 +883,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Hotel">
-            <EntityTypeMapping TypeName="Model.Hotel">
+            <EntityTypeMapping TypeName="Model1.Hotel">
               <MappingFragment StoreEntitySet="Hotel">
                 <ScalarProperty Name="id_hotel" ColumnName="id_hotel" />
                 <ScalarProperty Name="hotel_name" ColumnName="hotel_name" />
@@ -895,7 +897,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Nutrition">
-            <EntityTypeMapping TypeName="Model.Nutrition">
+            <EntityTypeMapping TypeName="Model1.Nutrition">
               <MappingFragment StoreEntitySet="Nutrition">
                 <ScalarProperty Name="id_nutrition" ColumnName="id_nutrition" />
                 <ScalarProperty Name="nutrition_type" ColumnName="nutrition_type" />
@@ -903,7 +905,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Payment_Type">
-            <EntityTypeMapping TypeName="Model.Payment_Type">
+            <EntityTypeMapping TypeName="Model1.Payment_Type">
               <MappingFragment StoreEntitySet="Payment_Type">
                 <ScalarProperty Name="id_payment_type" ColumnName="id_payment_type" />
                 <ScalarProperty Name="payment_type1" ColumnName="payment_type" />
@@ -911,7 +913,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Role">
-            <EntityTypeMapping TypeName="Model.Role">
+            <EntityTypeMapping TypeName="Model1.Role">
               <MappingFragment StoreEntitySet="Role">
                 <ScalarProperty Name="id_role" ColumnName="id_role" />
                 <ScalarProperty Name="role1" ColumnName="role" />
@@ -919,7 +921,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Sale">
-            <EntityTypeMapping TypeName="Model.Sale">
+            <EntityTypeMapping TypeName="Model1.Sale">
               <MappingFragment StoreEntitySet="Sale">
                 <ScalarProperty Name="id_sale" ColumnName="id_sale" />
                 <ScalarProperty Name="sale_date" ColumnName="sale_date" />
@@ -932,7 +934,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="Model.sysdiagrams">
+            <EntityTypeMapping TypeName="Model1.sysdiagrams">
               <MappingFragment StoreEntitySet="sysdiagrams">
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="principal_id" ColumnName="principal_id" />
@@ -943,7 +945,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Tour">
-            <EntityTypeMapping TypeName="Model.Tour">
+            <EntityTypeMapping TypeName="Model1.Tour">
               <MappingFragment StoreEntitySet="Tour">
                 <ScalarProperty Name="id_tour" ColumnName="id_tour" />
                 <ScalarProperty Name="tour_name" ColumnName="tour_name" />
@@ -957,11 +959,12 @@
                 <ScalarProperty Name="id_tour_type" ColumnName="id_tour_type" />
                 <ScalarProperty Name="id_nutrition" ColumnName="id_nutrition" />
                 <ScalarProperty Name="id_hotel" ColumnName="id_hotel" />
+                <ScalarProperty Name="tour_img" ColumnName="tour_img" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Tour_Type">
-            <EntityTypeMapping TypeName="Model.Tour_Type">
+            <EntityTypeMapping TypeName="Model1.Tour_Type">
               <MappingFragment StoreEntitySet="Tour_Type">
                 <ScalarProperty Name="id_tour_type" ColumnName="id_tour_type" />
                 <ScalarProperty Name="tour_type1" ColumnName="tour_type" />
@@ -969,7 +972,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="User">
-            <EntityTypeMapping TypeName="Model.User">
+            <EntityTypeMapping TypeName="Model1.User">
               <MappingFragment StoreEntitySet="User">
                 <ScalarProperty Name="id_user" ColumnName="id_user" />
                 <ScalarProperty Name="surname" ColumnName="surname" />
