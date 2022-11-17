@@ -21,7 +21,7 @@
         </Grid.RowDefinitions>
 
         <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Left">
-            <Image Margin="10,0" Source="/Resources/plane.png"></Image>
+            <Image Margin="10,0" Source="/Resources/plane.png" Height="25" Width="25"></Image>
             <Button Name="gotoPageRegistration" Click="gotoPageRegistration_Click" Foreground="#dee2e6" Margin="5,0" Width="100" Height="25" Template="{StaticResource ButtonTemplate}" Background="#FF8D6060">Регистрация</Button>
             <Button Name="gotoPageАuthorization" Click="gotoPageАuthorization_Click" Foreground="#dee2e6" Margin="5,0" Height="25" Width="100" Template="{StaticResource ButtonTemplate}" >Авторизация</Button>
 

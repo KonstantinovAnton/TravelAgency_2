@@ -49,8 +49,6 @@ namespace TravelAgency
 
             listView.ItemsSource = allData.ToList();
 
-
-
         }
 
         private void gotoPageAdminMenu_Click(object sender, RoutedEventArgs e)
@@ -75,6 +73,44 @@ namespace TravelAgency
 
             // переход на страницу с редактированием (на ту же самую, где и добавляли кота)
             NavigationService.Navigate(new PageAdminAddTour(tour, false));
+        }
+
+        private void btndelete_Click(object sender, RoutedEventArgs e)
+        {
+
+            Button btn = (Button)sender;
+
+            int index = Convert.ToInt32(btn.Uid);
+            var tourForDelete = Base.EM.Tour.FirstOrDefault(x => x.id_tour == index);
+            List<Sale> saleTourForDelete = Base.EM.Sale.Where(x => x.id_tour == index).ToList();
+
+            if (MessageBox.Show("Удалить тур " + tourForDelete.tour_name + "?", "Удаление", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
+            {
+                try
+                {
+                    foreach (Sale t in saleTourForDelete)
+                    {
+                        Base.EM.Sale.Remove(t);
+                    }
+
+
+                    Base.EM.Tour.Remove(tourForDelete);
+                    Base.EM.SaveChanges();
+
+                    MessageBox.Show("Тур успешно удален");
+                }
+                catch
+                {
+                    MessageBox.Show("Тур не удален");
+
+                }
+            }
+
+            NavigationService.Navigate(new PageAdminTour());
+
+
+
+
         }
     }
 }

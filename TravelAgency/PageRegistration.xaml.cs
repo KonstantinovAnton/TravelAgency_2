@@ -71,6 +71,7 @@ namespace TravelAgency
 
 
                 var userObj = Base.EM.User.FirstOrDefault(x => x.login == textBoxLogin.Text);
+               
 
                 if (userObj != null)
                 {

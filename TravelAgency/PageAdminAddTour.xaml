@@ -5,8 +5,12 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:TravelAgency"
       mc:Ignorable="d" 
-      d:DesignHeight="1450" d:DesignWidth="800"
+      d:DesignHeight="450" d:DesignWidth="800"
       Title="PageAdminAddTour">
+
+    <Page.Resources>
+        <BitmapImage x:Key="defaultImage" UriSource='/Resources/zaglushka.png'></BitmapImage>
+    </Page.Resources>
 
     <Grid>
 
@@ -15,37 +19,83 @@
             <RowDefinition Height="40"></RowDefinition>
         </Grid.RowDefinitions>
         <ScrollViewer VerticalScrollBarVisibility="Auto">
-            <StackPanel Background="Aqua" ScrollViewer.VerticalScrollBarVisibility="Visible">
-            <Label>Название тура</Label>
-            <TextBox Name="textBoxTourName"></TextBox>
-            <Label>Цена тура</Label>
-            <TextBox Name="textBoxPrice"></TextBox>
-            <Label>Дата отправки</Label>
-            <DatePicker Name="dataPickerDepart" Margin="0,5,0,0" Width="190" HorizontalAlignment="Left" FontSize="15" SelectedDateChanged="dataPickerDepart_SelectedDateChanged"></DatePicker>
-            <Label>Город отправки</Label>
-            
-            <ListBox Name="listBoxDepartCity" Height="50"  ScrollViewer.VerticalScrollBarVisibility="Visible"></ListBox>
-            <Label>Дата возвращения</Label>
-                <DatePicker Name="dataPickerReturn" Margin="0,5,0,0" Width="190" HorizontalAlignment="Left" FontSize="15" SelectedDateChanged="dataPickerReturn_SelectedDateChanged"></DatePicker>
-                <Label>Город возвращения</Label>
-                <ListBox Name="listBoxReturnCity" Height="50"   ScrollViewer.VerticalScrollBarVisibility="Visible" SelectionChanged="listBoxReturnCity_SelectionChanged"></ListBox>
-            <StackPanel Orientation="Horizontal">
-                <Label>Кол-во дней</Label>
-                <Label Name="labelDaysAmount"></Label>
-                <Label>Страна тура</Label>
-                <Label Name="labelCountry"></Label>
-            </StackPanel>
-            <Label>Тип тура</Label>
-                <ListBox Name="listBoxTourType" Height="30"  ScrollViewer.VerticalScrollBarVisibility="Visible"></ListBox>
-            <Label>Питание</Label>
-                <ListBox Name="listBoxNutrition" Height="30"  ScrollViewer.VerticalScrollBarVisibility="Visible"></ListBox>
-            <Label>Отель</Label>
-                <ListBox Name="listBoxHotel" Height="30"  ScrollViewer.VerticalScrollBarVisibility="Visible"></ListBox>
-                <Button Name="buttonAddChangePhoto" Click="buttonAddChangePhoto_Click">Добавить/изменить фото</Button>
+            <StackPanel ScrollViewer.VerticalScrollBarVisibility="Visible" Background="#CACFD5" >
+                <StackPanel Margin="20,0">
 
-        </StackPanel>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <StackPanel>
+                            <Label Style="{StaticResource labelStyle}">Название тура</Label>
+                            <TextBox Name="textBoxTourName" Style="{StaticResource textBoxStyle}" Width="480" HorizontalAlignment="Left"></TextBox>
+                        </StackPanel>
+                        <StackPanel Margin="30,0,0,0">
+                            <Label Style="{StaticResource labelStyle}">Цена тура</Label>
+                            <TextBox Name="textBoxPrice" Style="{StaticResource textBoxStyle}" Width="120"></TextBox>
+                        </StackPanel>
+                       
+                    </StackPanel>
+                    
+                    
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                          <StackPanel>
+                               <StackPanel>
+                                    <Label Style="{StaticResource labelStyle}">Дата отправки</Label>
+                                   <DatePicker Name="dataPickerDepart" Margin="0,5,0,0" Width="300" HorizontalAlignment="Left" FontSize="15" SelectedDateChanged="dataPickerDepart_SelectedDateChanged"></DatePicker>
+                              </StackPanel>
+                               <StackPanel>
+                                   <Label Style="{StaticResource labelStyle}">Город отправки</Label>
+                                <ListBox Name="listBoxDepartCity" Height="100" Width="300" Background="#B3BAC2"
+                                            ScrollViewer.VerticalScrollBarVisibility="Visible"></ListBox>
+                                </StackPanel>
+                         </StackPanel>
+                    <StackPanel>
+                        
+                     <StackPanel Margin="30,0,0,0">
+                            <Label Style="{StaticResource labelStyle}">Дата возвращения</Label>
+                                <DatePicker Name="dataPickerReturn" Margin="0,5,0,0" Width="300" HorizontalAlignment="Left" FontSize="15" SelectedDateChanged="dataPickerReturn_SelectedDateChanged"></DatePicker>
+                                <Label Style="{StaticResource labelStyle}">Город возвращения</Label>
+                                <ListBox Name="listBoxReturnCity" Height="100" Width="300" Background="#B3BAC2"
+                                         ScrollViewer.VerticalScrollBarVisibility="Visible" SelectionChanged="listBoxReturnCity_SelectionChanged"></ListBox>
+                            </StackPanel>
+
+                    </StackPanel>
+                </StackPanel>
+                    <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="0,0,390,0" Width="390">
+                        <StackPanel Orientation="Horizontal" Margin="70,0,0,0">
+                            <Label Style="{StaticResource labelStyle}">Кол-во дней:</Label>
+                             <Label Style="{StaticResource labelStyle}" Name="labelDaysAmount"></Label>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="40,0,0,0" Width="290">
+                            <Label Style="{StaticResource labelStyle}">Страна тура:</Label>
+                            <Label Style="{StaticResource labelStyle}" Name="labelCountry" Width="200"></Label>
+                        </StackPanel>
+                     </StackPanel>
+
+
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <StackPanel>
+                        <Label Style="{StaticResource labelStyle}">Тип тура</Label>
+                            <ListBox Name="listBoxTourType" Height="100" Width="200" Background="#B3BAC2"
+                                 ScrollViewer.VerticalScrollBarVisibility="Visible"></ListBox>
+                    </StackPanel>
+                    <StackPanel Margin="19,0,0,0">
+                            <Label Style="{StaticResource labelStyle}">Питание</Label>
+                            <ListBox Name="listBoxNutrition" Height="100" Width="200" Background="#B3BAC2"
+                                 ScrollViewer.VerticalScrollBarVisibility="Visible"></ListBox>
+                    </StackPanel>
+                    <StackPanel Margin="19,0,0,0">
+                            <Label Style="{StaticResource labelStyle}">Отель</Label>
+                            <ListBox Name="listBoxHotel" Height="100" Width="200" Background="#B3BAC2"
+                                  ScrollViewer.VerticalScrollBarVisibility="Visible"></ListBox>
+                    </StackPanel>
+                       </StackPanel>
+
+                    <Button Name="buttonAddChangePhoto" Click="buttonAddChangePhoto_Click" Margin="0,20" Height="30" Width="190" Foreground="#dee2e6" Template="{StaticResource ButtonTemplate}">Добавить/изменить фото</Button>
+                </StackPanel>
+            </StackPanel>
 </ScrollViewer>
-        <Button Name="gotoPageAdminMenu"  Grid.Row="1" Width="150" Margin="0,5,10,5" HorizontalAlignment="Right" Foreground="#dee2e6" Template="{StaticResource ButtonTemplate}">В меню</Button>
-        <Button Name="buttonAddTour"  Grid.Row="1" Width="150" Margin="0,5,190,5" HorizontalAlignment="Right" Foreground="#dee2e6" Template="{StaticResource ButtonTemplate}" Click="buttonAddTour_Click">Добавить</Button>
+        
+            <Button Name="gotoPageAdminMenu"  Grid.Row="1" Width="150" Margin="0,5,5,5" HorizontalAlignment="Right" Foreground="#dee2e6" Template="{StaticResource ButtonTemplate}" Click="gotoPageAdminMenu_Click">В меню</Button>
+            <Button Name="buttonAddTour"  Grid.Row="1" Width="150" Margin="0,5,160,5" HorizontalAlignment="Right" Foreground="#dee2e6" Template="{StaticResource ButtonTemplate}" Click="buttonAddTour_Click">Добавить</Button>
+        
     </Grid>
 </Page>

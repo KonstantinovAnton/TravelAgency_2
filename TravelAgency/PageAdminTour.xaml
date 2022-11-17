@@ -20,13 +20,18 @@
             <RowDefinition Height="40"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <ListView Name="listView">
+        <ListView Name="listView" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="#CACFD5">
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel HorizontalAlignment="Center"></WrapPanel>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Border Padding="5" CornerRadius="5" BorderThickness="1" BorderBrush="#445c93">
-                        <Grid Width="300" Height="300">
-                            <StackPanel>
-                                <Button Uid="{Binding id_tour}" Name="btnupdate" Click="btnupdate_Click">Редактировать</Button>
+                    <Border Padding="5"  CornerRadius="5" BorderThickness="1" BorderBrush="#445c93">
+                        <Grid Width="300" Height="370">
+                            <StackPanel  Background="#B3BAC2">
+                              
                                 <TextBlock FontWeight="Bold" Text="{Binding tour_name}" FontSize="16"/>
                                 <TextBlock Text="{Binding price, StringFormat={}{0:F} руб.}" FontSize="16"/>
                                 <TextBlock Text="{Binding departure_date, StringFormat={}Дата вылета: {0:dd.MM.yyyy}}"  FontSize="16"/>
@@ -38,6 +43,10 @@
                                 <TextBlock Text="{Binding hotel_name, StringFormat={}Отель: {0}}"  FontSize="16"/>
                                 <TextBlock Text="{Binding nutrition_type, StringFormat={}Питание: {0}}"  FontSize="16"/>
                                 <Image Name="imgTour" Source="{Binding tour_img, TargetNullValue={StaticResource defaultImage}}" Width="100" Height="100"/>
+                                <StackPanel Orientation="Horizontal" Margin="0,20,0,0" HorizontalAlignment="Center">
+                                    <Button Uid="{Binding id_tour}" Name="btnupdate" Click="btnupdate_Click" Width="120" Height="30" VerticalContentAlignment="Center" Foreground="#dee2e6" Template="{StaticResource ButtonTemplate}">Редактировать</Button>
+                                    <Button Uid="{Binding id_tour}" Name="btndelete" Click="btndelete_Click" Width="120" Height="30" VerticalContentAlignment="Center" Foreground="#dee2e6" Template="{StaticResource ButtonTemplate}" Margin="5,0,0,0">Удалить</Button>
+                                </StackPanel>
                             </StackPanel>
 
                         </Grid>
@@ -47,8 +56,8 @@
         </ListView>
 
 
-        <Button Name="gotoPageAdminMenu" Click="gotoPageAdminMenu_Click" Grid.Row="1" Width="150" Margin="640,5,0,0" HorizontalAlignment="Left" Foreground="#dee2e6" Template="{StaticResource ButtonTemplate}" Height="30" VerticalAlignment="Top">В меню</Button>
-        <Button Name="gotoPageAdminAddTour" Grid.Row="1" Width="150" Margin="0,5,190,5" HorizontalAlignment="Right" Foreground="#dee2e6" Template="{StaticResource ButtonTemplate}" Click="gotoPageAdminAddTour_Click">Добавить</Button>
+        <Button Name="gotoPageAdminMenu" Click="gotoPageAdminMenu_Click" Grid.Row="1" HorizontalAlignment="Right" Width="150" Margin="0,5,5,0"  Foreground="#dee2e6" Template="{StaticResource ButtonTemplate}" Height="30" VerticalAlignment="Top">В меню</Button>
+        <Button Name="gotoPageAdminAddTour" Grid.Row="1" Width="150" Margin="0,5,160,5" HorizontalAlignment="Right" Foreground="#dee2e6" Template="{StaticResource ButtonTemplate}" Click="gotoPageAdminAddTour_Click">Добавить</Button>
 
     </Grid>
 </Page>
