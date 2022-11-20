@@ -53,7 +53,11 @@ namespace TravelAgency
             listBoxHotel.SelectedValuePath = "id_hotel";
             listBoxHotel.DisplayMemberPath = "hotel_name";
 
-            
+            textBoxFindDepartCity.Text = "Введите город для поиска";
+            textBoxFindReturnCity.Text = "Введите город для поиска";
+
+
+
 
             this.isNew = isNew;
             tourUpdated = tour;
@@ -63,17 +67,19 @@ namespace TravelAgency
                
                 textBoxTourName.Text = tour.tour_name;
                 textBoxPrice.Text = Convert.ToString(tour.price);
-                listBoxDepartCity.SelectedIndex = tour.departure_city_id - 1;
-                listBoxReturnCity.SelectedIndex = tour.return_city_id - 1;
+                listBoxDepartCity.SelectedValue = tour.departure_city_id;
+                listBoxReturnCity.SelectedValue = tour.return_city_id;
 
-                listBoxTourType.SelectedIndex = tour.id_tour_type - 1;
-                listBoxNutrition.SelectedIndex = tour.id_nutrition - 1;
-                listBoxHotel.SelectedIndex = tour.id_hotel - 1;
+                listBoxTourType.SelectedValue = tour.id_tour_type;
+                listBoxNutrition.SelectedValue = tour.id_nutrition;
+                listBoxHotel.SelectedValue = tour.id_hotel;
+
+                
 
                 dataPickerDepart.SelectedDate = tour.departure_date;
                 dataPickerReturn.SelectedDate = tour.return_date;
 
-               
+                buttonAddTour.Content = "Изменить";
                 
             }
 
@@ -90,6 +96,12 @@ namespace TravelAgency
 
             labelCountry.Content = counrtyName.country_name;
 
+
+            var hotel = Base.EM.Hotel.Where(x => x.id_city == idCity);
+
+            listBoxHotel.ItemsSource = hotel.ToList();
+            listBoxHotel.SelectedValuePath = "id_hotel";
+            listBoxHotel.DisplayMemberPath = "hotel_name";
 
 
         }
@@ -118,15 +130,15 @@ namespace TravelAgency
         private void buttonAddTour_Click(object sender, RoutedEventArgs e)
         {
 
+            if (!checkValues()) return;
+
             int idCity = Convert.ToInt32(listBoxReturnCity.SelectedValue.ToString());
             var count = Base.EM.City.FirstOrDefault(x => x.id_city == idCity);
             string days = Convert.ToString(dataPickerReturn.SelectedDate.Value - dataPickerDepart.SelectedDate.Value);
             string[] days1 = days.Split('.');
-           
 
             try
             {
-
                 if (isNew)
                 {
                     Tour tour = new Tour()
@@ -166,13 +178,14 @@ namespace TravelAgency
                     
                     Base.EM.SaveChanges();
                 }
-                   
-                    MessageBox.Show("Успешно");
-                
-               
+
+                MessageBox.Show("Тур успешно добавлен", "Добавление тура", MessageBoxButton.OK, MessageBoxImage.Information);
+
+                NavigationService.Navigate(new PageAdminTour());
+
             }
             catch {
-                MessageBox.Show("Проблема");
+                MessageBox.Show("Тур не добавлен", "Добавление тура", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -191,5 +204,113 @@ namespace TravelAgency
         {
             NavigationService.Navigate(new PageAdminMenu());
         }
+
+        private bool checkValues()
+        {
+            if (textBoxTourName.Text == " " || textBoxTourName.Text == "")
+            {
+                MessageBox.Show("Введите название тура", "Ошибка добавления", MessageBoxButton.OK, MessageBoxImage.Error);
+                return false;
+            }
+
+            try
+            {
+                if (textBoxPrice.Text == "" || textBoxPrice.Text == " ")
+                {
+                    MessageBox.Show("Введите цену тура", "Ошибка добавления", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return false;
+                }
+
+                if(Convert.ToDecimal(textBoxPrice.Text) <= 0)
+                {
+                    MessageBox.Show("Введите корректную цену", "Ошибка добавления", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return false;
+                }
+
+            }
+            catch
+            {
+                MessageBox.Show("Введите корректную цену", "Ошибка добавления", MessageBoxButton.OK, MessageBoxImage.Error);
+                return false;
+            }
+
+            if(dataPickerDepart.SelectedDate== null)
+            {
+                MessageBox.Show("Введите дату отправки", "Ошибка добавления", MessageBoxButton.OK, MessageBoxImage.Error);
+                return false;
+            }
+            if (dataPickerReturn.SelectedDate == null)
+            {
+                MessageBox.Show("Введите дату возращения", "Ошибка добавления", MessageBoxButton.OK, MessageBoxImage.Error);
+                return false;
+            }
+
+            if(dataPickerReturn.SelectedDate <= dataPickerDepart.SelectedDate)
+            {
+                MessageBox.Show("Дата возвращения должна быть после даты отправки", "Ошибка добавления", MessageBoxButton.OK, MessageBoxImage.Error);
+                return false;
+            }
+            if(listBoxDepartCity.SelectedValue == null)
+            {
+                MessageBox.Show("Выберите город отправки из России", "Ошибка добавления", MessageBoxButton.OK, MessageBoxImage.Error);
+                return false;
+            }
+            if (listBoxDepartCity.SelectedValue == null)
+            {
+                MessageBox.Show("Выберите город возвращения из тура", "Ошибка добавления", MessageBoxButton.OK, MessageBoxImage.Error);
+                return false;
+            }
+            if (listBoxHotel.SelectedValue == null)
+            {
+                MessageBox.Show("Выберите отель", "Ошибка добавления", MessageBoxButton.OK, MessageBoxImage.Error);
+                return false;
+            }
+            if (listBoxNutrition.SelectedValue == null)
+            {
+                MessageBox.Show("Выберите тип питания", "Ошибка добавления", MessageBoxButton.OK, MessageBoxImage.Error);
+                return false;
+            }
+            if (listBoxTourType.SelectedValue == null)
+            {
+                MessageBox.Show("Выберите тип тура", "Ошибка добавления", MessageBoxButton.OK, MessageBoxImage.Error);
+                return false;
+            }
+
+            return true;
+        }
+
+        private void textBoxFindDepartCity_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            textBoxFindDepartCity.Text = null;
+        }
+
+        private void buttonFindDepartCity_Click(object sender, RoutedEventArgs e)
+        {
+            string cityDepart = textBoxFindDepartCity.Text;
+
+            var query = Base.EM.City.Where(x => x.city_name.ToLower().Contains(cityDepart.ToLower()));
+
+            listBoxDepartCity.ItemsSource = query.ToList();
+            listBoxDepartCity.SelectedValuePath = "id_city";
+            listBoxDepartCity.DisplayMemberPath = "city_name";
+
+        }
+
+        private void textBoxFindReturnCity_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            textBoxFindReturnCity.Text = null;
+        }
+
+        private void buttonFindReturnCity_Click(object sender, RoutedEventArgs e)
+        {
+            string cityReturn = textBoxFindReturnCity.Text;
+
+            var query = Base.EM.City.Where(x => x.city_name.ToLower().Contains(cityReturn.ToLower()));
+
+            listBoxReturnCity.ItemsSource = query.ToList();
+            listBoxReturnCity.SelectedValuePath = "id_city";
+            listBoxReturnCity.DisplayMemberPath = "city_name";
+        }
     }
+
 }

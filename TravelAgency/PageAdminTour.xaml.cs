@@ -97,11 +97,11 @@ namespace TravelAgency
                     Base.EM.Tour.Remove(tourForDelete);
                     Base.EM.SaveChanges();
 
-                    MessageBox.Show("Тур успешно удален");
+                    MessageBox.Show("Тур удален", "Ошибка удаления", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
                 catch
                 {
-                    MessageBox.Show("Тур не удален");
+                    MessageBox.Show("Тур не удален", "Ошибка удаления", MessageBoxButton.OK, MessageBoxImage.Error);
 
                 }
             }

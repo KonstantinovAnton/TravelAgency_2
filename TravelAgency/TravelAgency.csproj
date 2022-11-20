@@ -246,7 +246,11 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
-    <Resource Include="Resources\TourImg\tour.jpg" />
+    <Resource Include="Resources\lupa.png" />
+    <Resource Include="Resources\TourImg\London.jpg" />
+    <Resource Include="Resources\TourImg\Paris.jpg" />
+    <Resource Include="Resources\TourImg\Rome.jpeg" />
+    <Resource Include="Resources\TourImg\Stambul.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

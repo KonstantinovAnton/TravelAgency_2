@@ -28,39 +28,39 @@ namespace TravelAgency
         private void btnAuthorizate_Click(object sender, RoutedEventArgs e)
         {
 
-            NavigationService.Navigate(new PageAdminMenu());
 
-            //int pass = passBox.Password.ToString().GetHashCode();
 
-            //try
-            //{
-            //    var userObj = Base.EM.User.FirstOrDefault(x => x.login == textBoxLogin.Text && x.password == pass);
+            int pass = passBox.Password.ToString().GetHashCode();
 
-            //    if(userObj == null)
-            //    {
-            //        MessageBox.Show("Таких нет!", "Ошибка авторизации", MessageBoxButton.OK, MessageBoxImage.Error);
-            //    }
-            //    else
-            //    {
-            //        switch(userObj.id_role)
-            //        {
-            //            case 1:
+            try
+            {
+                var userObj = Base.EM.User.FirstOrDefault(x => x.login == textBoxLogin.Text && x.password == pass);
 
-            //                NavigationService.Navigate(new PageAdminMenu());
-                        
-            //                break;
+                if (userObj == null)
+                {
+                    MessageBox.Show("Таких нет!", "Ошибка авторизации", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+                else
+                {
+                    switch (userObj.id_role)
+                    {
+                        case 1:
 
-            //            case 2:
+                            NavigationService.Navigate(new PageAdminMenu());
 
-            //                NavigationService.Navigate(new PageUserMenu());
-            //                break;
-            //        }
-            //    }
-            //}
-            //catch
-            //{
-            //    MessageBox.Show("ccnas");
-            //}
+                            break;
+
+                        case 2:
+
+                            NavigationService.Navigate(new PageUserMenu());
+                            break;
+                    }
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Возникли проблемы","Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }
