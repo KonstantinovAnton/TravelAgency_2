@@ -23,6 +23,36 @@ namespace TravelAgency
         public PageUserMenu()
         {
             InitializeComponent();
+
+
+            var userObj = Base.EM.User.FirstOrDefault(x => x.id_user == GlobalValues.id_user);
+
+      
+            textBlockName.Text = userObj.name;
+            textBlockSurname.Text = userObj.surname;
+            textBlockLogin.Text = userObj.login;
+            textBlockBirthday.Text = Convert.ToString(userObj.birthday);
+
+
+        }
+
+        private void buttonEditData_Click(object sender, RoutedEventArgs e)
+        {
+           
+            WindowEditPersonalData windowEditPersonalData = new WindowEditPersonalData();
+            windowEditPersonalData.Show();
+
+            Application.Current.MainWindow.Hide();
+
+        }
+
+        private void buttonEditLoginAndPassword_Click(object sender, RoutedEventArgs e)
+        {
+            WindowEditLoginAndPassword windowEditLoginAndPassword = new WindowEditLoginAndPassword();
+            windowEditLoginAndPassword.Show();
+
+            Application.Current.MainWindow.Hide();
+
         }
     }
 }

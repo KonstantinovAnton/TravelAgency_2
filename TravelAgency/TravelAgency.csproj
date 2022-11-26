@@ -80,6 +80,7 @@
     <Compile Include="Gender.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="GlobalValues.cs" />
     <Compile Include="Hotel.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -128,6 +129,9 @@
     <Compile Include="Payment_Type.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="PhotoUser.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Role.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -145,6 +149,12 @@
     </Compile>
     <Compile Include="User.cs">
       <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WindowEditLoginAndPassword.xaml.cs">
+      <DependentUpon>WindowEditLoginAndPassword.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WindowEditPersonalData.xaml.cs">
+      <DependentUpon>WindowEditPersonalData.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -187,6 +197,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="PageUserMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WindowEditLoginAndPassword.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WindowEditPersonalData.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -236,6 +254,13 @@
     <Folder Include="Pages\" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resources\lupa.png" />
+    <Resource Include="Resources\TourImg\London.jpg" />
+    <Resource Include="Resources\TourImg\Paris.jpg" />
+    <Resource Include="Resources\TourImg\Rome.jpeg" />
+    <Resource Include="Resources\TourImg\Stambul.jpg" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>
@@ -246,11 +271,6 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
-    <Resource Include="Resources\lupa.png" />
-    <Resource Include="Resources\TourImg\London.jpg" />
-    <Resource Include="Resources\TourImg\Paris.jpg" />
-    <Resource Include="Resources\TourImg\Rome.jpeg" />
-    <Resource Include="Resources\TourImg\Stambul.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

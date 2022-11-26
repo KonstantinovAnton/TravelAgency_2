@@ -13,10 +13,10 @@ namespace TravelAgency
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class Entities2 : DbContext
+    public partial class Entities3 : DbContext
     {
-        public Entities2()
-            : base("name=Entities2")
+        public Entities3()
+            : base("name=Entities3")
         {
         }
     
@@ -33,6 +33,7 @@ namespace TravelAgency
         public virtual DbSet<Hotel> Hotel { get; set; }
         public virtual DbSet<Nutrition> Nutrition { get; set; }
         public virtual DbSet<Payment_Type> Payment_Type { get; set; }
+        public virtual DbSet<PhotoUser> PhotoUser { get; set; }
         public virtual DbSet<Role> Role { get; set; }
         public virtual DbSet<Sale> Sale { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }

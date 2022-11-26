@@ -8,6 +8,6 @@ namespace TravelAgency
 {
     public class Base
     {
-        public static Entities2 EM;
+        public static Entities3 EM;
     }
 }

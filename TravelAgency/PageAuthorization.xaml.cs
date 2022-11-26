@@ -42,6 +42,8 @@ namespace TravelAgency
                 }
                 else
                 {
+                    GlobalValues.id_user = userObj.id_user;
+
                     switch (userObj.id_role)
                     {
                         case 1:

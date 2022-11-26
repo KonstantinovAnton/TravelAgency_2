@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="Model1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+<Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityType Name="City">
     <Key>
       <PropertyRef Name="id_city" />
@@ -85,6 +85,16 @@
     <Property Name="payment_type1" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
     <NavigationProperty Name="Sale" Relationship="Self.FK_Sale_Payment_Type" FromRole="Payment_Type" ToRole="Sale" />
   </EntityType>
+  <EntityType Name="PhotoUser">
+    <Key>
+      <PropertyRef Name="id_photo" />
+    </Key>
+    <Property Name="id_photo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_user" Type="Int32" Nullable="false" />
+    <Property Name="source" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="phot" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <NavigationProperty Name="User" Relationship="Self.FK_PhotoUser_User" FromRole="PhotoUser" ToRole="User" />
+  </EntityType>
   <EntityType Name="Role">
     <Key>
       <PropertyRef Name="id_role" />
@@ -166,6 +176,7 @@
     <Property Name="birthday" Type="DateTime" Nullable="false" Precision="0" />
     <Property Name="id_role" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Gender" Relationship="Self.FK_User_Gender" FromRole="User" ToRole="Gender" />
+    <NavigationProperty Name="PhotoUser" Relationship="Self.FK_PhotoUser_User" FromRole="User" ToRole="PhotoUser" />
     <NavigationProperty Name="Role" Relationship="Self.FK_User_Role" FromRole="User" ToRole="Role" />
   </EntityType>
   <Association Name="FK_City_Country">
@@ -312,6 +323,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_PhotoUser_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="PhotoUser" Type="Self.PhotoUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="id_user" />
+      </Principal>
+      <Dependent Role="PhotoUser">
+        <PropertyRef Name="id_user" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_User_Role">
     <End Role="Role" Type="Self.Role" Multiplicity="1" />
     <End Role="User" Type="Self.User" Multiplicity="*" />
@@ -348,7 +371,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="Entities2" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="Entities3" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="City" EntityType="Self.City" />
     <EntitySet Name="Client" EntityType="Self.Client" />
     <EntitySet Name="Country" EntityType="Self.Country" />
@@ -357,6 +380,7 @@
     <EntitySet Name="Hotel" EntityType="Self.Hotel" />
     <EntitySet Name="Nutrition" EntityType="Self.Nutrition" />
     <EntitySet Name="Payment_Type" EntityType="Self.Payment_Type" />
+    <EntitySet Name="PhotoUser" EntityType="Self.PhotoUser" />
     <EntitySet Name="Role" EntityType="Self.Role" />
     <EntitySet Name="Sale" EntityType="Self.Sale" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
@@ -410,6 +434,10 @@
     <AssociationSet Name="FK_Sale_Payment_Type" Association="Self.FK_Sale_Payment_Type">
       <End Role="Payment_Type" EntitySet="Payment_Type" />
       <End Role="Sale" EntitySet="Sale" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PhotoUser_User" Association="Self.FK_PhotoUser_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="PhotoUser" EntitySet="PhotoUser" />
     </AssociationSet>
     <AssociationSet Name="FK_User_Role" Association="Self.FK_User_Role">
       <End Role="Role" EntitySet="Role" />

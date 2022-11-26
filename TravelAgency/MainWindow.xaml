@@ -1,7 +1,13 @@
 ﻿<!--
     ЛОГИН АДМИНИСТРАТОРА: admin
     ПАРОЛЬ АДМИНИСТРАТОРА: 1234
+    
+    ЛОГИН ПОЛЬЗОВАТЕЛЯ: Ivanov
+    ПАРОЛь ПОЛЬЗОВАТЕЛЯ: Ivanov1P_q!
+    
  -->
+    
+    
     
     <Window x:Class="TravelAgency.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
@@ -11,8 +17,9 @@
         xmlns:local="clr-namespace:TravelAgency"
         mc:Ignorable="d"
         Title="ТурАгенство" Height="530" Width="800"
-        Background="#FF3F3F46"    
-            >
+        Background="#FF3F3F46" 
+             WindowStartupLocation="CenterScreen">
+            
     <Grid>
 
         <Grid.RowDefinitions>

@@ -9,6 +9,17 @@
       Title="PageUserMenu">
 
     <Grid>
-        <TextBlock FontSize="50">Меню пользователя</TextBlock>
+        <StackPanel Background="AliceBlue">
+            <TextBlock FontSize="30">Личный кабинет</TextBlock>
+            <TextBlock Name="textBlockName">Имя</TextBlock>
+            <TextBlock Name="textBlockSurname">Фамилия</TextBlock>
+            <TextBlock Name="textBlockLogin">Логин</TextBlock>
+            <TextBlock Name="textBlockBirthday">Дата рождения</TextBlock>
+            <Image Source="/Resources/zaglushka.png" Width="100" Height="100"></Image>
+            <Button Name="buttonEditData" Height="20" Width="200" Click="buttonEditData_Click">Редактировать данные</Button>
+            <Button Name="buttonEditLoginAndPassword" Height="20" Width="200" Click="buttonEditLoginAndPassword_Click">Изменить логин и пароль</Button>
+
+        </StackPanel>
     </Grid>
+    
 </Page>

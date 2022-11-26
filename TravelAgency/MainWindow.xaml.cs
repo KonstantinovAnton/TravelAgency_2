@@ -23,7 +23,7 @@ namespace TravelAgency
         public MainWindow()
         {
             InitializeComponent();
-            Base.EM = new Entities2();
+            Base.EM = new Entities3();
         }
 
         private void gotoPageRegistration_Click(object sender, RoutedEventArgs e)

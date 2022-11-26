@@ -14,6 +14,12 @@ namespace TravelAgency
     
     public partial class User
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public User()
+        {
+            this.PhotoUser = new HashSet<PhotoUser>();
+        }
+    
         public int id_user { get; set; }
         public string surname { get; set; }
         public string name { get; set; }
@@ -25,6 +31,8 @@ namespace TravelAgency
         public int id_role { get; set; }
     
         public virtual Gender Gender { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PhotoUser> PhotoUser { get; set; }
         public virtual Role Role { get; set; }
     }
 }
