@@ -13,7 +13,8 @@
         <StackPanel>
             <Button Margin="0,50,0,10" Name ="gotoPageAdminShowData" Width="350" Height="50" Foreground="#dee2e6" Click="gotoPageAdminShowData_Click" Template="{StaticResource ButtonTemplate}" FontSize="20">Пользователи</Button>
             <Button Name ="gotoPageAdminTour" Margin="0,0,0,10" Width="350" Height="50" Foreground="#dee2e6" Click="gotoPageAdminTour_Click" Template="{StaticResource ButtonTemplate}" FontSize="20">Туры</Button>
-            <Button Name="gotoPageSale" Width="350" Height="50" Foreground="#dee2e6" Click="gotoPageSale_Click" Template="{StaticResource ButtonTemplate}" FontSize="20">Продажи</Button>
-            </StackPanel>
+            <Button Name="gotoPageSale" Width="350" Height="50" Margin="0,0,0,10" Foreground="#dee2e6" Click="gotoPageSale_Click" Template="{StaticResource ButtonTemplate}" FontSize="20">Продажи</Button>
+            <Button Name="gotoPageUserMenu" Width="350" Margin="0,0,0,10" Height="50" Foreground="#dee2e6"  Template="{StaticResource ButtonTemplate}" FontSize="20" Click="gotoPageUserMenu_Click">Личный кабинет</Button>
+        </StackPanel>
     </Grid>
 </Page>

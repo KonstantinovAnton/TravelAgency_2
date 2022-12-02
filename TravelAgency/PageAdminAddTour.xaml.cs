@@ -193,10 +193,17 @@ namespace TravelAgency
         {
             OpenFileDialog OFD = new OpenFileDialog();  // создаем объект диалогового окна
             OFD.ShowDialog();  // открываем диалоговое окно
-            path = OFD.FileName;  // извлекаем полный путь к картинке
-            string[] arrayPath = path.Split('\\');  // разделяем путь к картинке в массив
-            path = "\\" + arrayPath[arrayPath.Length - 3] + "\\" + arrayPath[arrayPath.Length - 2] + "\\" + arrayPath[arrayPath.Length - 1];  // записываем в бд путь, начиная с имени папки
 
+            try
+            {
+                path = OFD.FileName;  // извлекаем полный путь к картинке
+                string[] arrayPath = path.Split('\\');  // разделяем путь к картинке в массив
+                path = "\\" + arrayPath[arrayPath.Length - 3] + "\\" + arrayPath[arrayPath.Length - 2] + "\\" + arrayPath[arrayPath.Length - 1];  // записываем в бд путь, начиная с имени папки
+            }
+            catch
+            {
+                return;
+            }
             
         }
 

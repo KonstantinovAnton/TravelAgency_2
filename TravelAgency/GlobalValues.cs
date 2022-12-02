@@ -9,5 +9,8 @@ namespace TravelAgency
     public static class GlobalValues
     {
         public static int id_user;
+        public static int role;
+        public static bool isRefesh;
+       
     }
 }

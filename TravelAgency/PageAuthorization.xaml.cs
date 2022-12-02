@@ -43,6 +43,7 @@ namespace TravelAgency
                 else
                 {
                     GlobalValues.id_user = userObj.id_user;
+                    GlobalValues.role = userObj.id_role;
 
                     switch (userObj.id_role)
                     {

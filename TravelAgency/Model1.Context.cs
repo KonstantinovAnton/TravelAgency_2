@@ -13,10 +13,10 @@ namespace TravelAgency
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class Entities3 : DbContext
+    public partial class Entities4 : DbContext
     {
-        public Entities3()
-            : base("name=Entities3")
+        public Entities4()
+            : base("name=Entities4")
         {
         }
     

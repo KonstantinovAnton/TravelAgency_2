@@ -146,6 +146,7 @@
     <Property Name="id_gender" Type="int" Nullable="false" />
     <Property Name="birthday" Type="date" Nullable="false" />
     <Property Name="id_role" Type="int" Nullable="false" />
+    <Property Name="id_photo" Type="int" />
   </EntityType>
   <Association Name="FK_City_Country">
     <End Role="Country" Type="Self.Country" Multiplicity="1" />

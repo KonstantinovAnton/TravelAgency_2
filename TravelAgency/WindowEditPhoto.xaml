@@ -1,0 +1,24 @@
+﻿<Window x:Class="TravelAgency.WindowEditPhoto"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TravelAgency"
+        mc:Ignorable="d"
+        Title="WindowEditPhoto" Height="450" Width="800">
+    <Grid>
+        <StackPanel>
+
+          
+            <Button Name="buttonSaveChanges" Height="30" Width="200" Click="buttonSaveChanges_Click">Сохранить</Button>
+            <Button Name="buttonChooseNewPhoto" Height="30" Width="200" Click="buttonChooseNewPhoto_Click">Выбрать новое фото</Button>
+            <Button Name="buttonChooseOldPhoto" Height="30" Width="200" Click="buttonChooseOldPhoto_Click" >Выбрать старое фото</Button>
+            <Button Name="buttonGotoPageUserMenu" Height="30" Width="200" Click="buttonGotoPageUserMenu_Click">Выйти</Button>
+            <Image Name="imageGallery"  Width="200" Height="200" Source="/Resources/zaglushka.png"></Image>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Name="buttonBack" Height="30" Width="100" Click="buttonBack_Click">Предыдущее</Button>
+            <Button Name="buttonNext" Height="30" Width="100" Click="buttonNext_Click">Следущее</Button>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

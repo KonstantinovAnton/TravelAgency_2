@@ -175,6 +175,7 @@
     <Property Name="id_gender" Type="Int32" Nullable="false" />
     <Property Name="birthday" Type="DateTime" Nullable="false" Precision="0" />
     <Property Name="id_role" Type="Int32" Nullable="false" />
+    <Property Name="id_photo" Type="Int32" />
     <NavigationProperty Name="Gender" Relationship="Self.FK_User_Gender" FromRole="User" ToRole="Gender" />
     <NavigationProperty Name="PhotoUser" Relationship="Self.FK_PhotoUser_User" FromRole="User" ToRole="PhotoUser" />
     <NavigationProperty Name="Role" Relationship="Self.FK_User_Role" FromRole="User" ToRole="Role" />
@@ -371,7 +372,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="Entities3" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="Entities4" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="City" EntityType="Self.City" />
     <EntitySet Name="Client" EntityType="Self.Client" />
     <EntitySet Name="Country" EntityType="Self.Country" />

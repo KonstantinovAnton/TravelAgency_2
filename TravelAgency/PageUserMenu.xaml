@@ -15,9 +15,12 @@
             <TextBlock Name="textBlockSurname">Фамилия</TextBlock>
             <TextBlock Name="textBlockLogin">Логин</TextBlock>
             <TextBlock Name="textBlockBirthday">Дата рождения</TextBlock>
-            <Image Source="/Resources/zaglushka.png" Width="100" Height="100"></Image>
+            <Image Name="imagePhotoUser" Width="100" Height="100" Source="/Resources/zaglushka.png"></Image>
+            <Button Name="buttonRefresh" Height="20" Width="200" Click="buttonRefresh_Click">Обновить</Button>
             <Button Name="buttonEditData" Height="20" Width="200" Click="buttonEditData_Click">Редактировать данные</Button>
             <Button Name="buttonEditLoginAndPassword" Height="20" Width="200" Click="buttonEditLoginAndPassword_Click">Изменить логин и пароль</Button>
+            <Button Name="buttonEditPhoto" Height="20" Width="200" Click="buttonEditPhoto_Click" >Изменить фото</Button>
+            <Button Name="buttonGotoMenu" Height="20" Width="200" Visibility="Hidden" Click="buttonGotoMenu_Click">Меню</Button>
 
         </StackPanel>
     </Grid>

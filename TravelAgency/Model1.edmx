@@ -151,6 +151,7 @@
           <Property Name="id_gender" Type="int" Nullable="false" />
           <Property Name="birthday" Type="date" Nullable="false" />
           <Property Name="id_role" Type="int" Nullable="false" />
+          <Property Name="id_photo" Type="int" />
         </EntityType>
         <Association Name="FK_City_Country">
           <End Role="Country" Type="Self.Country" Multiplicity="1" />
@@ -605,6 +606,7 @@
           <Property Name="id_gender" Type="Int32" Nullable="false" />
           <Property Name="birthday" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="id_role" Type="Int32" Nullable="false" />
+          <Property Name="id_photo" Type="Int32" />
           <NavigationProperty Name="Gender" Relationship="Self.FK_User_Gender" FromRole="User" ToRole="Gender" />
           <NavigationProperty Name="PhotoUser" Relationship="Self.FK_PhotoUser_User" FromRole="User" ToRole="PhotoUser" />
           <NavigationProperty Name="Role" Relationship="Self.FK_User_Role" FromRole="User" ToRole="Role" />
@@ -801,7 +803,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Entities3" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="Entities4" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="City" EntityType="Self.City" />
           <EntitySet Name="Client" EntityType="Self.Client" />
           <EntitySet Name="Country" EntityType="Self.Country" />
@@ -887,7 +889,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище ModelContainer" CdmEntityContainer="Entities3">
+        <EntityContainerMapping StorageEntityContainer="Хранилище ModelContainer" CdmEntityContainer="Entities4">
           <EntitySetMapping Name="City">
             <EntityTypeMapping TypeName="Model.City">
               <MappingFragment StoreEntitySet="City">
@@ -1047,6 +1049,7 @@
                 <ScalarProperty Name="id_gender" ColumnName="id_gender" />
                 <ScalarProperty Name="birthday" ColumnName="birthday" />
                 <ScalarProperty Name="id_role" ColumnName="id_role" />
+                <ScalarProperty Name="id_photo" ColumnName="id_photo" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

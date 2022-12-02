@@ -8,6 +8,50 @@
         Title="WindowEditPersonalData" Height="450" Width="800"
          WindowStartupLocation="CenterScreen">
     <Grid>
-        <Button Name="buttonGotoPageUserMenu" Height="30" Width="200" Click="buttonGotoPageUserMenu_Click">Выйти</Button>
+        <StackPanel   Orientation="Vertical" >
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+
+                <StackPanel Margin="5">
+                    <Label HorizontalAlignment="Center" Margin="0,0,70,0" Style="{StaticResource labelStyle}">Фамилия</Label>
+                    <TextBox Name="textBoxSurname" Style="{StaticResource textBoxStyle}"></TextBox>
+                </StackPanel>
+
+                <StackPanel Margin="5">
+                    <Label HorizontalAlignment="Center" Margin="0,0,95,0" Style="{StaticResource labelStyle}">Имя</Label>
+                    <TextBox Name="textBoxName" Style="{StaticResource textBoxStyle}"></TextBox>
+                </StackPanel >
+
+                <StackPanel Margin="5">
+                    <Label HorizontalAlignment="Center" Margin="0,0,68,0"  Style="{StaticResource labelStyle}">Отчество</Label>
+                    <TextBox Name="textBoxPatronymic" Style="{StaticResource textBoxStyle}" ></TextBox>
+                </StackPanel>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+
+                <StackPanel Margin="0,10,0,0">
+                    <Label HorizontalAlignment="Center" Margin="0,0,110,0" Style="{StaticResource labelStyle}" >Пол</Label>
+                    <GroupBox Width="200" Height="35" BorderThickness="0"  FontSize="15" Margin="0,5,0,0" >
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <RadioButton Name="radioBtnMale"  Content="Мужской" Margin="5"/>
+                            <RadioButton Name="radioBtnFemale" Content="Женский" Margin="5"></RadioButton>
+                        </StackPanel>
+                    </GroupBox>
+                </StackPanel>
+
+                
+
+                <StackPanel HorizontalAlignment="Center" Margin="0,10,0,0">
+                    <Label Style="{StaticResource labelStyle}">Дата рождения</Label>
+                    <DatePicker Margin="0,5,0,0" Name="datePickBirthday" Width="190" HorizontalAlignment="Left" FontSize="15"></DatePicker>
+                </StackPanel>
+               
+            </StackPanel>
+            <StackPanel>
+                <Button Name="buttonSaveChanges" Height="30" Width="200" Click="buttonSaveChanges_Click">Сохранить</Button>
+                <Button Name="buttonGotoPageUserMenu" Height="30" Width="200" Click="buttonGotoPageUserMenu_Click">Выйти</Button>
+            </StackPanel>
+        </StackPanel>
+       
     </Grid>
 </Window>

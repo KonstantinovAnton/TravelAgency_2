@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="Хранилище ModelContainer" CdmEntityContainer="Entities3">
+  <EntityContainerMapping StorageEntityContainer="Хранилище ModelContainer" CdmEntityContainer="Entities4">
     <EntitySetMapping Name="City">
       <EntityTypeMapping TypeName="Model.City">
         <MappingFragment StoreEntitySet="City">
@@ -160,6 +160,7 @@
           <ScalarProperty Name="id_gender" ColumnName="id_gender" />
           <ScalarProperty Name="birthday" ColumnName="birthday" />
           <ScalarProperty Name="id_role" ColumnName="id_role" />
+          <ScalarProperty Name="id_photo" ColumnName="id_photo" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
