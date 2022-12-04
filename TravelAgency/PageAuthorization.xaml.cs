@@ -62,7 +62,7 @@ namespace TravelAgency
             }
             catch
             {
-                MessageBox.Show("Возникли проблемы","Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Возникли проблемы с соединением с сервером. Пожайлуста, повторите ещё раз","Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }

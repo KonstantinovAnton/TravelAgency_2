@@ -24,8 +24,9 @@ namespace TravelAgency
         {
             InitializeComponent();
             Base.EM = new Entities4();
-          
-           
+            frm.Navigate(new PageAuthorization());
+
+
         }
 
         private void gotoPageRegistration_Click(object sender, RoutedEventArgs e)

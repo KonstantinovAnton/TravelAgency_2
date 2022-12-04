@@ -39,7 +39,10 @@ namespace TravelAgency
         private void buttonGotoPageUserMenu_Click(object sender, RoutedEventArgs e)
         {
 
-            Application.Current.MainWindow.Show();
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.frm.Navigate(new PageUserMenu());
+            mainWindow.Show();
+
             this.Close();
         }
 
@@ -50,24 +53,24 @@ namespace TravelAgency
                 MessageBox.Show("Введите новый логин", "Ошибка редактирования", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-            if (passBox.Password == null || passBox.Password == "")
+
+            var userObj = Base.EM.User.FirstOrDefault(x => x.login == textBoxLogin.Text);
+
+            if (userObj != null)
             {
-                MessageBox.Show("Введите новый пароль", "Ошибка редактирования", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Пользователь с таким логином уже существует", "Ошибка изменения", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-            if (passBoxRepeatPass.Password == null || passBoxRepeatPass.Password == "")
-            {
-                MessageBox.Show("Повторите новый пароль", "Ошибка редактирования", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
+
             if (passBox.Password != passBoxRepeatPass.Password)
             {
                 MessageBox.Show("Пароли не совпадают", "Ошибка редактирования", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
 
-            if (!isCorrectPass(passBox))
-                return;
+            if (passBox.Password != null && passBox.Password != "")
+                if (!isCorrectPass(passBox))
+                     return;
 
             if (MessageBox.Show("Вы точно хотите сохранить изменения? ", "Изменение", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.No)
             {
@@ -76,14 +79,20 @@ namespace TravelAgency
 
             try
             {
+                if (passBox.Password != null && passBox.Password != "")
+                    userForChanges.password = passBox.Password.ToString().GetHashCode();
+
                 userForChanges.login = textBoxLogin.Text;
-                userForChanges.password = passBox.Password.ToString().GetHashCode();
+                
 
                 Base.EM.SaveChanges();
                 MessageBox.Show("Успешно изменено", "Изменение", MessageBoxButton.OK, MessageBoxImage.Information);
 
 
-                Application.Current.MainWindow.Show();
+                MainWindow mainWindow = new MainWindow();
+                mainWindow.frm.Navigate(new PageUserMenu());
+                mainWindow.Show();
+
                 this.Close();
             }
             catch

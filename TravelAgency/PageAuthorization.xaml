@@ -11,13 +11,13 @@
     <Grid>
         <TextBlock FontSize="40">Авторизация</TextBlock>
 
-        <StackPanel  Background="#8d99ae" >
+        <StackPanel  Background="#8d99ae">
             
-                <Label HorizontalAlignment="Center" Margin="0,30,72,0" Style="{StaticResource labelStyle}">Логин</Label>
+                <Label HorizontalAlignment="Center" Margin="0,120,72,0" Style="{StaticResource labelStyle}">Логин</Label>
                 <TextBox Name="textBoxLogin"  Width="140" Style="{StaticResource textBoxStyle}">Ivanov</TextBox>
             <Label HorizontalAlignment="Center" Margin="0,0,59,0" Style="{StaticResource labelStyle}">Пароль</Label>
             <PasswordBox  Name="passBox" Width="140" Style="{StaticResource passwordBoxStyle}" Password="Ivanov1P_q!"></PasswordBox>
-            <Button Name="btnAuthorizate" Height="30"  Click="btnAuthorizate_Click" Width="120" Foreground="#dee2e6" Margin="0,20,0,0" Template="{StaticResource ButtonTemplate}"  FontSize="20">Войти</Button>
+            <Button Name="btnAuthorizate" Height="30"  Click="btnAuthorizate_Click" Width="120" Foreground="#dee2e6" Margin="0,20,0,0" Template="{StaticResource ButtonTemplate}" VerticalContentAlignment="Center" FontSize="20">Войти</Button>
             
         </StackPanel>
  </Grid>

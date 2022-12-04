@@ -50,8 +50,11 @@ namespace TravelAgency
         private void buttonGotoPageUserMenu_Click(object sender, RoutedEventArgs e)
         {
 
-          
-            Application.Current.MainWindow.Show();
+
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.frm.Navigate(new PageUserMenu());
+            mainWindow.Show();
+
             this.Close();
 
         }

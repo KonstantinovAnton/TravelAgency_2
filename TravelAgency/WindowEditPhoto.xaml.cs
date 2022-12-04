@@ -63,48 +63,15 @@ namespace TravelAgency
         private void buttonGotoPageUserMenu_Click(object sender, RoutedEventArgs e)
         {
 
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.frm.Navigate(new PageUserMenu());
+            mainWindow.Show();
 
-
-            Application.Current.MainWindow.Show();
             this.Close();
         }
 
-        private void buttonChooseNewPhoto_Click(object sender, RoutedEventArgs e)
-        {
-            PhotoUser photoUser = new PhotoUser();  // создание объекта для добавления записи в таблицу, где хранится фото
-            photoUser.id_user = GlobalValues.id_user;  // присваиваем значение полю idUser (id авторизованного пользователя)
-
-            OpenFileDialog OFD = new OpenFileDialog();  // создаем диалоговое окно
-                                                        //OFD.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);  // выбор папки для открытия
-            OFD.ShowDialog();  // открываем диалоговое окно  
-            
-
-            string path = OFD.FileName;  // считываем путь выбранного изображения
-
-            try
-            {
-                System.Drawing.Image SDI = System.Drawing.Image.FromFile(path);  // создаем объект для загрузки изображения в базу
-
-                ImageConverter IC = new ImageConverter();  // создаем конвертер для перевода картинки в двоичный формат
-                byte[] Barray = (byte[])IC.ConvertTo(SDI, typeof(byte[]));  // создаем байтовый массив для хранения картинки
-                photoUser.phot = Barray;  // заполяем поле photoBinary полученным байтовым массивом
-            }
-            catch
-            {
-                return;
-            }
-
-            Base.EM.PhotoUser.Add(photoUser);
-            Base.EM.SaveChanges();
-
-
-            MessageBox.Show("Фото добавлено");
-            
-
-            
-        }
-
-        private void buttonChooseOldPhoto_Click(object sender, RoutedEventArgs e)
+ 
+        private void buttonSaveChanges_Click(object sender, RoutedEventArgs e)
         {
             User user = Base.EM.User.FirstOrDefault(x => x.id_user == GlobalValues.id_user);
 
@@ -112,14 +79,15 @@ namespace TravelAgency
 
             Base.EM.SaveChanges();
 
-            MessageBox.Show("Фото изменено");
+            MessageBox.Show("Фото успешно изменено", "Редактирование фото", MessageBoxButton.OK, MessageBoxImage.Information);
 
 
-        }
 
-        private void buttonSaveChanges_Click(object sender, RoutedEventArgs e)
-        {
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.frm.Navigate(new PageUserMenu());
+            mainWindow.Show();
 
+            this.Close();
         }
 
         private void buttonBack_Click(object sender, RoutedEventArgs e)
