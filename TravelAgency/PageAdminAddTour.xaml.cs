@@ -79,6 +79,8 @@ namespace TravelAgency
                 dataPickerDepart.SelectedDate = tour.departure_date;
                 dataPickerReturn.SelectedDate = tour.return_date;
 
+                path = tour.tour_img;
+
                 buttonAddTour.Content = "Изменить";
                 
             }
@@ -159,6 +161,8 @@ namespace TravelAgency
                     Base.EM.Tour.Add(tour);
                     Base.EM.SaveChanges();
 
+                    MessageBox.Show("Тур успешно добавлен", "Добавление тура", MessageBoxButton.OK, MessageBoxImage.Information);
+
                 }
                 else
                 {
@@ -177,9 +181,11 @@ namespace TravelAgency
 
                     
                     Base.EM.SaveChanges();
+                    MessageBox.Show("Тур успешно изменен", "Изменение тура", MessageBoxButton.OK, MessageBoxImage.Information);
+                   
                 }
 
-                MessageBox.Show("Тур успешно добавлен", "Добавление тура", MessageBoxButton.OK, MessageBoxImage.Information);
+                
 
                 NavigationService.Navigate(new PageAdminTour());
 
