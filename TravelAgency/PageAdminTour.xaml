@@ -18,6 +18,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="100"></RowDefinition>
             <RowDefinition></RowDefinition>
+
             <RowDefinition Height="40"></RowDefinition>
         </Grid.RowDefinitions>
 
@@ -38,13 +39,14 @@
                     <Label FontSize="15">Макс. цена</Label>
                     <TextBox Name="textBoxPriceMax" Width="100" Height="25" FontSize="15"></TextBox>
                 </StackPanel>
+               
 
                 <StackPanel Orientation="Vertical" Margin="5,0">
                     <Label FontSize="15">Введите название тура</Label>
                     <TextBox Name="textBoxTourName" Width="250" Height="25" FontSize="15"></TextBox>
                 </StackPanel>
-
-
+                
+    
             </StackPanel>
 
 
@@ -57,6 +59,7 @@
                         <RadioButton IsChecked="True" Name="radioButtonAsc" FontSize="15">По возрастанию</RadioButton>
                     </StackPanel>
                 </GroupBox>
+                
                 <CheckBox Name="checkBoxWithNutrition" FontSize="15" Margin="5,0">Полное питание</CheckBox>
                 <Button Name="buttonFiltrAndSort" Width="100" Height="25" Click="buttonFiltrAndSort_Click" FontSize="15" Margin="0,-10,0,0">Поиск</Button>
 
@@ -106,11 +109,20 @@
         </ListView>
 
 
+        <StackPanel Grid.Row="2" HorizontalAlignment="Left" Margin="20,0,0,0" Orientation="Horizontal" VerticalAlignment="Center">
+           
+             <Label FontSize="15">Кол-во записей на странице</Label>
+            <TextBox Name="textBoxCountRecords" Width="30" Height="25" FontSize="15"></TextBox>
 
-        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Label Name="labelBack" MouseDown="labelBack_MouseDown" >Назад</Label>
+            <Label Name="labelForward" MouseDown="labelForward_MouseDown">Вперед</Label>
 
+        </StackPanel>
+
+        <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Right">
             <Button Name="gotoPageAdminMenu" Click="gotoPageAdminMenu_Click" Grid.Row="1" HorizontalAlignment="Right" Width="150" Foreground="#dee2e6" Template="{StaticResource ButtonTemplate}" Height="30" VerticalAlignment="Center">В меню</Button>
-            <Button Name="gotoPageAdminAddTour" Grid.Row="1" Width="150"  HorizontalAlignment="Right" Foreground="#dee2e6" Template="{StaticResource ButtonTemplate}" Click="gotoPageAdminAddTour_Click" Margin="5,0" Height="30" VerticalAlignment="Center">Добавить</Button>
+                <Button Name="gotoPageAdminAddTour" Grid.Row="1" Width="150"  HorizontalAlignment="Right" Foreground="#dee2e6" Template="{StaticResource ButtonTemplate}" Click="gotoPageAdminAddTour_Click" Margin="5,0" Height="30" VerticalAlignment="Center">Добавить</Button>
+            
         </StackPanel>
     </Grid>
 </Page>

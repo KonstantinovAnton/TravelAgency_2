@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,6 +25,7 @@ namespace TravelAgency
         public PageAdminTour()
         {
             InitializeComponent();
+
 
             var tour = Base.EM.Tour.ToList();
             var tour_type = Base.EM.Tour_Type.ToList();
@@ -54,7 +56,8 @@ namespace TravelAgency
             listView.ItemsSource = allData.ToList();
 
             defComboBoxCountries();
-            
+
+            countRecordsShowed = 1;
 
         }
 
@@ -153,8 +156,39 @@ namespace TravelAgency
             comboBoxSort.SelectedIndex = 0;
         }
 
+        int countRecodrsOnPage;
+        int countRecordsShowed;
+        int countAllRecords;
+
         private void buttonFiltrAndSort_Click(object sender, RoutedEventArgs e)
         {
+            sortAndFilterData();
+        }
+
+        private void labelForward_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            try
+            {
+                countRecodrsOnPage = Convert.ToInt32(textBoxCountRecords.Text);
+            }
+            catch
+            {
+                countRecodrsOnPage = 1;
+            }
+            sortAndFilterData();
+        }
+
+        private void sortAndFilterData()
+        {
+            try
+            {
+                countRecodrsOnPage = Convert.ToInt32(textBoxCountRecords.Text);
+            }
+            catch
+            {
+                countRecodrsOnPage = 1;
+            }
+
             var tour = Base.EM.Tour.ToList();
             var tour_type = Base.EM.Tour_Type.ToList();
             var city = Base.EM.City.ToList();
@@ -196,11 +230,12 @@ namespace TravelAgency
             // Фильтрация для мин. цены
 
             decimal minPrice;
-            try 
+            try
             {
                 minPrice = Convert.ToDecimal(textBoxPriceMin.Text);
                 allData = allData.Where(x => x.price >= minPrice);
-            } catch{}
+            }
+            catch { }
 
             // Фильтрация для макс. цены
             decimal maxPrice;
@@ -208,7 +243,8 @@ namespace TravelAgency
             {
                 maxPrice = Convert.ToDecimal(textBoxPriceMax.Text);
                 allData = allData.Where(x => x.price <= maxPrice);
-            } catch {}
+            }
+            catch { }
 
             // Фильтрация для страны
 
@@ -222,14 +258,14 @@ namespace TravelAgency
 
             // Фильтрация для названия тура
 
-            if(textBoxTourName.Text != "" && textBoxTourName.Text != " ")
+            if (textBoxTourName.Text != "" && textBoxTourName.Text != " ")
             {
                 allData = allData.Where(x => x.tour_name.ToLower().Contains(textBoxTourName.Text.ToLower()));
             }
 
             // Фильтрация для питания
 
-            if((bool)checkBoxWithNutrition.IsChecked)
+            if ((bool)checkBoxWithNutrition.IsChecked)
             {
                 allData = allData.Where(x => x.nutrition_type == "Полное");
             }
@@ -238,7 +274,7 @@ namespace TravelAgency
 
             int sortBy = comboBoxSort.SelectedIndex;
 
-            if((bool)radioButtonDesc.IsChecked)
+            if ((bool)radioButtonDesc.IsChecked)
             {
                 if (sortBy == 0)
                 {
@@ -269,8 +305,18 @@ namespace TravelAgency
                 }
             }
 
-          
-           
+            countRecordsShowed++;
+            listView.ItemsSource = allData.Skip(countRecordsShowed).Take(countRecodrsOnPage).ToList();
+
+            
+
+        }
+
+        private void labelBack_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            countRecordsShowed-=2;
+            sortAndFilterData();
+
         }
     }
 }
